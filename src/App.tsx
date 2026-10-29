@@ -292,11 +292,11 @@ function App() {
     // Moon
     ctx.fillStyle = 'rgba(255, 255, 220, 0.9)';
     ctx.beginPath();
-    ctx.arc(moonX, moonY, 25, 0, Math.PI * 2);
+    ctx.arc(moonX, moonY, Math.max(0.1, 25), 0, Math.PI * 2);
     ctx.fill();
     ctx.fillStyle = sky1;
     ctx.beginPath();
-    ctx.arc(moonX + 8, moonY - 5, 20, 0, Math.PI * 2);
+    ctx.arc(moonX + 8, moonY - 5, Math.max(0.1, 20), 0, Math.PI * 2);
     ctx.fill();
 
     // Background trees (far layer)
@@ -309,13 +309,13 @@ function App() {
         ctx.fillRect(tree.x - 5, tree.y - tree.height * 0.6, 10, tree.height * 0.6);
         // Canopy
         ctx.beginPath();
-        ctx.arc(tree.x, tree.y - tree.height * 0.6, tree.width * 0.8, 0, Math.PI * 2);
+        ctx.arc(tree.x, tree.y - tree.height * 0.6, Math.max(0.1, tree.width * 0.8), 0, Math.PI * 2);
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(tree.x - 15, tree.y - tree.height * 0.5, tree.width * 0.6, 0, Math.PI * 2);
+        ctx.arc(tree.x - 15, tree.y - tree.height * 0.5, Math.max(0.1, tree.width * 0.6), 0, Math.PI * 2);
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(tree.x + 15, tree.y - tree.height * 0.5, tree.width * 0.6, 0, Math.PI * 2);
+        ctx.arc(tree.x + 15, tree.y - tree.height * 0.5, Math.max(0.1, tree.width * 0.6), 0, Math.PI * 2);
         ctx.fill();
       });
 
@@ -327,10 +327,10 @@ function App() {
         ctx.fillStyle = `rgba(15, 80, 40, ${alpha})`;
         ctx.fillRect(tree.x - 7, tree.y - tree.height * 0.5, 14, tree.height * 0.5);
         ctx.beginPath();
-        ctx.arc(tree.x, tree.y - tree.height * 0.55, tree.width * 0.9, 0, Math.PI * 2);
+        ctx.arc(tree.x, tree.y - tree.height * 0.55, Math.max(0.1, tree.width * 0.9), 0, Math.PI * 2);
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(tree.x - 20, tree.y - tree.height * 0.4, tree.width * 0.7, 0, Math.PI * 2);
+        ctx.arc(tree.x - 20, tree.y - tree.height * 0.4, Math.max(0.1, tree.width * 0.7), 0, Math.PI * 2);
         ctx.fill();
       });
 
@@ -347,7 +347,7 @@ function App() {
       // Leaf at end
       ctx.fillStyle = 'rgba(40, 150, 60, 0.7)';
       ctx.beginPath();
-      ctx.ellipse(vine.x + swayX * 0.5, vine.y + vine.length, 5, 8, swayX * 0.05, 0, Math.PI * 2);
+      ctx.ellipse(vine.x + swayX * 0.5, vine.y + vine.length, Math.max(0.1, 5), Math.max(0.1, 8), swayX * 0.05, 0, Math.PI * 2);
       ctx.fill();
     });
 
@@ -367,7 +367,7 @@ function App() {
       ctx.shadowBlur = 10;
       ctx.fillStyle = `rgba(200, 255, 100, ${brightness})`;
       ctx.beginPath();
-      ctx.arc(ff.x, ff.y, ff.radius, 0, Math.PI * 2);
+      ctx.arc(ff.x, ff.y, Math.max(0.1, ff.radius), 0, Math.PI * 2);
       ctx.fill();
       ctx.restore();
     });
@@ -400,7 +400,7 @@ function App() {
         // Moss on top
         ctx.fillStyle = '#2d8a4e';
         for (let i = 0; i < width; i += 8) {
-          const mh = 3 + Math.sin(i * 0.3 + time * 0.02) * 2;
+          const mh = Math.max(0.1, 3 + Math.sin(i * 0.3 + time * 0.02) * 2);
           ctx.beginPath();
           ctx.arc(x + i, y, mh, Math.PI, 0);
           ctx.fill();
@@ -414,7 +414,7 @@ function App() {
         leafGrad.addColorStop(1, '#228B22');
         ctx.fillStyle = leafGrad;
         ctx.beginPath();
-        ctx.ellipse(x + width / 2, y + height / 2, width / 2, height, 0, 0, Math.PI * 2);
+        ctx.ellipse(x + width / 2, y + height / 2, Math.max(0.1, width / 2), Math.max(0.1, height), 0, 0, Math.PI * 2);
         ctx.fill();
         // Leaf vein
         ctx.strokeStyle = 'rgba(0, 80, 0, 0.4)';
@@ -429,7 +429,7 @@ function App() {
         ctx.strokeStyle = 'rgba(60, 179, 113, 0.3)';
         ctx.lineWidth = 1;
         ctx.beginPath();
-        ctx.ellipse(x + width / 2, y + height / 2, width / 2, height, 0, 0, Math.PI * 2);
+        ctx.ellipse(x + width / 2, y + height / 2, Math.max(0.1, width / 2), Math.max(0.1, height), 0, 0, Math.PI * 2);
         ctx.stroke();
         break;
       }
@@ -498,7 +498,7 @@ function App() {
     // Shadow
     ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
     ctx.beginPath();
-    ctx.ellipse(0, 18, 14, 4, 0, 0, Math.PI * 2);
+    ctx.ellipse(0, 18, Math.max(0.1, 14), Math.max(0.1, 4), 0, 0, Math.PI * 2);
     ctx.fill();
 
     // Body (cute round creature - like a little jungle spirit)
@@ -508,29 +508,29 @@ function App() {
     bodyGrad.addColorStop(1, '#228B22');
     ctx.fillStyle = bodyGrad;
     ctx.beginPath();
-    ctx.ellipse(0, 0, 16, 18, 0, 0, Math.PI * 2);
+    ctx.ellipse(0, 0, Math.max(0.1, 16), Math.max(0.1, 18), 0, 0, Math.PI * 2);
     ctx.fill();
 
     // Belly
     ctx.fillStyle = '#90EE90';
     ctx.beginPath();
-    ctx.ellipse(0, 4, 10, 11, 0, 0, Math.PI * 2);
+    ctx.ellipse(0, 4, Math.max(0.1, 10), Math.max(0.1, 11), 0, 0, Math.PI * 2);
     ctx.fill();
 
     // Ears/leaves on head
     ctx.fillStyle = '#228B22';
     // Left ear
     ctx.beginPath();
-    ctx.ellipse(-10, -16, 5, 8, -0.3, 0, Math.PI * 2);
+    ctx.ellipse(-10, -16, Math.max(0.1, 5), Math.max(0.1, 8), -0.3, 0, Math.PI * 2);
     ctx.fill();
     // Right ear
     ctx.beginPath();
-    ctx.ellipse(10, -16, 5, 8, 0.3, 0, Math.PI * 2);
+    ctx.ellipse(10, -16, Math.max(0.1, 5), Math.max(0.1, 8), 0.3, 0, Math.PI * 2);
     ctx.fill();
     // Leaf on head
     ctx.fillStyle = '#3CB371';
     ctx.beginPath();
-    ctx.ellipse(0, -20, 4, 7, Math.sin(time * 0.05) * 0.2, 0, Math.PI * 2);
+    ctx.ellipse(0, -20, Math.max(0.1, 4), Math.max(0.1, 7), Math.sin(time * 0.05) * 0.2, 0, Math.PI * 2);
     ctx.fill();
     ctx.strokeStyle = '#228B22';
     ctx.lineWidth = 1;
@@ -544,27 +544,27 @@ function App() {
     // Eye whites
     ctx.fillStyle = '#fff';
     ctx.beginPath();
-    ctx.ellipse(-6, eyeY, 5, 6, 0, 0, Math.PI * 2);
+    ctx.ellipse(-6, eyeY, Math.max(0.1, 5), Math.max(0.1, 6), 0, 0, Math.PI * 2);
     ctx.fill();
     ctx.beginPath();
-    ctx.ellipse(6, eyeY, 5, 6, 0, 0, Math.PI * 2);
+    ctx.ellipse(6, eyeY, Math.max(0.1, 5), Math.max(0.1, 6), 0, 0, Math.PI * 2);
     ctx.fill();
     // Pupils
     ctx.fillStyle = '#1a1a1a';
     const pupilOffset = onGround ? 0 : -1;
     ctx.beginPath();
-    ctx.arc(-5, eyeY + pupilOffset, 3, 0, Math.PI * 2);
+    ctx.arc(-5, eyeY + pupilOffset, Math.max(0.1, 3), 0, Math.PI * 2);
     ctx.fill();
     ctx.beginPath();
-    ctx.arc(7, eyeY + pupilOffset, 3, 0, Math.PI * 2);
+    ctx.arc(7, eyeY + pupilOffset, Math.max(0.1, 3), 0, Math.PI * 2);
     ctx.fill();
     // Eye shine
     ctx.fillStyle = '#fff';
     ctx.beginPath();
-    ctx.arc(-4, eyeY - 2 + pupilOffset, 1.5, 0, Math.PI * 2);
+    ctx.arc(-4, eyeY - 2 + pupilOffset, Math.max(0.1, 1.5), 0, Math.PI * 2);
     ctx.fill();
     ctx.beginPath();
-    ctx.arc(8, eyeY - 2 + pupilOffset, 1.5, 0, Math.PI * 2);
+    ctx.arc(8, eyeY - 2 + pupilOffset, Math.max(0.1, 1.5), 0, Math.PI * 2);
     ctx.fill();
 
     // Mouth
@@ -583,20 +583,20 @@ function App() {
     // Blush
     ctx.fillStyle = 'rgba(255, 150, 150, 0.4)';
     ctx.beginPath();
-    ctx.ellipse(-10, 3, 4, 3, 0, 0, Math.PI * 2);
+    ctx.ellipse(-10, 3, Math.max(0.1, 4), Math.max(0.1, 3), 0, 0, Math.PI * 2);
     ctx.fill();
     ctx.beginPath();
-    ctx.ellipse(12, 3, 4, 3, 0, 0, Math.PI * 2);
+    ctx.ellipse(12, 3, Math.max(0.1, 4), Math.max(0.1, 3), 0, 0, Math.PI * 2);
     ctx.fill();
 
     // Feet
     const legAnim = onGround ? Math.sin(walkFrame * 0.4) * 3 : 0;
     ctx.fillStyle = '#228B22';
     ctx.beginPath();
-    ctx.ellipse(-6, 16 + legAnim, 5, 3, 0, 0, Math.PI * 2);
+    ctx.ellipse(-6, 16 + legAnim, Math.max(0.1, 5), Math.max(0.1, 3), 0, 0, Math.PI * 2);
     ctx.fill();
     ctx.beginPath();
-    ctx.ellipse(6, 16 - legAnim, 5, 3, 0, 0, Math.PI * 2);
+    ctx.ellipse(6, 16 - legAnim, Math.max(0.1, 5), Math.max(0.1, 3), 0, 0, Math.PI * 2);
     ctx.fill();
 
     // Glow aura
@@ -606,7 +606,7 @@ function App() {
     ctx.shadowBlur = 20;
     ctx.fillStyle = '#7CFC00';
     ctx.beginPath();
-    ctx.ellipse(0, 0, 20, 22, 0, 0, Math.PI * 2);
+    ctx.ellipse(0, 0, Math.max(0.1, 20), Math.max(0.1, 22), 0, 0, Math.PI * 2);
     ctx.fill();
     ctx.restore();
 
@@ -635,19 +635,19 @@ function App() {
           ctx.beginPath();
           ctx.ellipse(
             Math.cos(angle) * 8, Math.sin(angle) * 8,
-            5, 3, angle, 0, Math.PI * 2
+            Math.max(0.1, 5), Math.max(0.1, 3), angle, 0, Math.PI * 2
           );
           ctx.fill();
         }
         // Center
         ctx.fillStyle = '#FF8C00';
         ctx.beginPath();
-        ctx.arc(0, 0, 5, 0, Math.PI * 2);
+        ctx.arc(0, 0, Math.max(0.1, 5), 0, Math.PI * 2);
         ctx.fill();
         // Sparkle
         ctx.fillStyle = `rgba(255, 255, 200, ${0.5 + Math.sin(c.phase * 3) * 0.5})`;
         ctx.beginPath();
-        ctx.arc(-3, -3, 2, 0, Math.PI * 2);
+        ctx.arc(-3, -3, Math.max(0.1, 2), 0, Math.PI * 2);
         ctx.fill();
         break;
       }
@@ -693,7 +693,7 @@ function App() {
         // Inner glow
         ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
         ctx.beginPath();
-        ctx.arc(0, 0, 3, 0, Math.PI * 2);
+        ctx.arc(0, 0, Math.max(0.1, 3), 0, Math.PI * 2);
         ctx.fill();
         break;
       }
@@ -713,6 +713,8 @@ function App() {
       }
       p.life -= 0.02;
 
+      if (p.life <= 0) return false;
+
       ctx.globalAlpha = p.life;
       if (p.type === 'leaf') {
         ctx.fillStyle = p.color;
@@ -720,7 +722,7 @@ function App() {
         ctx.translate(p.x, p.y);
         ctx.rotate(time * 0.05 + p.vx);
         ctx.beginPath();
-        ctx.ellipse(0, 0, p.size, p.size * 0.5, 0, 0, Math.PI * 2);
+        ctx.ellipse(0, 0, Math.max(0.1, p.size), Math.max(0.1, p.size * 0.5), 0, 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
       } else if (p.type === 'firefly') {
@@ -729,16 +731,16 @@ function App() {
         ctx.shadowBlur = 8;
         ctx.fillStyle = p.color;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, Math.max(0.1, p.size * p.life), 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
       } else {
         ctx.fillStyle = p.color;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, Math.max(0.1, p.size * p.life), 0, Math.PI * 2);
         ctx.fill();
       }
-      return p.life > 0;
+      return true;
     });
     ctx.globalAlpha = 1;
   };
@@ -781,11 +783,11 @@ function App() {
     // Flower icon
     ctx.fillStyle = '#FFD700';
     ctx.beginPath();
-    ctx.arc(268, barY + barH / 2, 7, 0, Math.PI * 2);
+    ctx.arc(268, barY + barH / 2, Math.max(0.1, 7), 0, Math.PI * 2);
     ctx.fill();
     ctx.fillStyle = '#FF8C00';
     ctx.beginPath();
-    ctx.arc(268, barY + barH / 2, 4, 0, Math.PI * 2);
+    ctx.arc(268, barY + barH / 2, Math.max(0.1, 4), 0, Math.PI * 2);
     ctx.fill();
 
     // Text
@@ -922,7 +924,7 @@ function App() {
           ctx.fillStyle = 'rgba(20, 100, 50, 0.6)';
           ctx.fillRect(tree.x - 8, tree.y - tree.height * 0.4, 16, tree.height * 0.4);
           ctx.beginPath();
-          ctx.arc(tree.x, tree.y - tree.height * 0.45, tree.width, 0, Math.PI * 2);
+          ctx.arc(tree.x, tree.y - tree.height * 0.45, Math.max(0.1, tree.width), 0, Math.PI * 2);
           ctx.fill();
         });
 
@@ -1003,16 +1005,19 @@ function App() {
         p.x += p.vx + Math.sin(time * 0.02 + p.y * 0.01) * 0.3;
         p.y += p.vy;
         p.life -= 0.005;
+        
+        if (p.life <= 0) return false;
+        
         ctx.globalAlpha = p.life * 0.7;
         ctx.save();
         ctx.shadowColor = p.color;
         ctx.shadowBlur = 8;
         ctx.fillStyle = p.color;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, Math.max(0.1, p.size * p.life), 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
-        return p.life > 0;
+        return true;
       });
       ctx.globalAlpha = 1;
 
@@ -1056,12 +1061,12 @@ function App() {
         for (let j = 0; j < 5; j++) {
           const a = (j / 5) * Math.PI * 2 + time * 0.02;
           ctx.beginPath();
-          ctx.ellipse(fx + Math.cos(a) * 6, fy + Math.sin(a) * 6, 4, 2, a, 0, Math.PI * 2);
+          ctx.ellipse(fx + Math.cos(a) * 6, fy + Math.sin(a) * 6, Math.max(0.1, 4), Math.max(0.1, 2), a, 0, Math.PI * 2);
           ctx.fill();
         }
         ctx.fillStyle = '#FF8C00';
         ctx.beginPath();
-        ctx.arc(fx, fy, 3, 0, Math.PI * 2);
+        ctx.arc(fx, fy, Math.max(0.1, 3), 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -1142,16 +1147,19 @@ function App() {
         p.y += p.vy;
         p.vy *= 0.99;
         p.life -= 0.005;
+        
+        if (p.life <= 0) return false;
+        
         ctx.globalAlpha = p.life * 0.8;
         ctx.save();
         ctx.shadowColor = p.color;
         ctx.shadowBlur = 12;
         ctx.fillStyle = p.color;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, Math.max(0.1, p.size * p.life), 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
-        return p.life > 0;
+        return true;
       });
       ctx.globalAlpha = 1;
 
@@ -1161,12 +1169,12 @@ function App() {
 
       // Heart glow
       ctx.save();
-      const heartGrad = ctx.createRadialGradient(400, 180, 0, 400, 180, heartSize * 1.5);
+      const heartGrad = ctx.createRadialGradient(400, 180, 0, 400, 180, Math.max(0.1, heartSize * 1.5));
       heartGrad.addColorStop(0, 'rgba(255, 20, 100, 0.3)');
       heartGrad.addColorStop(1, 'rgba(255, 20, 100, 0)');
       ctx.fillStyle = heartGrad;
       ctx.beginPath();
-      ctx.arc(400, 180, heartSize * 1.5, 0, Math.PI * 2);
+      ctx.arc(400, 180, Math.max(0.1, heartSize * 1.5), 0, Math.PI * 2);
       ctx.fill();
       ctx.restore();
 
@@ -1201,7 +1209,7 @@ function App() {
         const radius = 130 + Math.sin(time * 0.03 + i) * 15;
         const hx = 400 + Math.cos(angle) * radius;
         const hy = 180 + Math.sin(angle) * radius * 0.4;
-        const hs = 8 + Math.sin(time * 0.05 + i) * 3;
+        const hs = Math.max(0.1, 8 + Math.sin(time * 0.05 + i) * 3);
         ctx.globalAlpha = 0.6 + Math.sin(time * 0.05 + i) * 0.3;
         ctx.fillStyle = ['#FF69B4', '#FFD700', '#FF1493', '#7CFC00'][i % 4];
         ctx.beginPath();
