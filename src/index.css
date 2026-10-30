@@ -498,3 +498,10 @@ kbd {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
   .line, .answer, .reveal { opacity: 1; }
 }
+
+@media (max-height: 520px) {
+  .line-1 { font-size: clamp(24px, 7vh, 40px); }
+  .line-2 { font-size: clamp(48px, 20vh, 96px); margin: 0 0 2px; }
+  .line-3 { font-size: clamp(16px, 5vh, 22px); }
+  .answer { margin-top: 14px; min-height: 96px; }
+}

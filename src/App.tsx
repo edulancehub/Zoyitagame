@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react';
 import confetti from 'canvas-confetti';
 import { Pause, Play, RotateCcw, Home, Volume2, VolumeX, Heart, Flower, Mail } from 'lucide-react';
 import { Engine, type Input, type Stats } from './game/engine';
@@ -341,32 +341,75 @@ function Proposal({ onYes }: { onYes: () => void }) {
   const yesRef = useRef<HTMLButtonElement>(null);
   const noRef = useRef<HTMLButtonElement>(null);
 
-  const dodge = () => {
-    const area = areaRef.current?.getBoundingClientRect();
-    const yes = yesRef.current?.getBoundingClientRect();
-    const no = noRef.current?.getBoundingClientRect();
-    if (!area || !yes || !no) return;
-    const pad = 24;
-    const halfW = Math.max(no.width + 20, Math.min(window.innerWidth / 2 - 20, area.width / 2 + 60));
-    let next = pos;
-    for (let i = 0; i < 40; i++) {
-      const cand = { x: pos.x + (Math.random() * 2 - 1) * halfW, y: pos.y + (Math.random() * 2 - 1) * 80 };
-      const left = no.left + (cand.x - pos.x);
-      const top = no.top + (cand.y - pos.y);
-      const inView = left > 12 && left + no.width < window.innerWidth - 12 && top > area.top - 40 && top + no.height < area.bottom + 40;
-      const hitsYes = left < yes.right + pad && left + no.width > yes.left - pad && top < yes.bottom + pad && top + no.height > yes.top - pad;
-      const moved = Math.abs(cand.x - pos.x) > 50 || Math.abs(cand.y - pos.y) > 40;
-      if (inView && !hitsYes && moved) {
-        next = cand;
-        break;
+  const scaleFor = (t: number) => 1 + Math.min(t, 6) * 0.1;
+
+  // Returns a checker for whether the No button, translated by (x, y), stays on screen and clear of Yes.
+  const fitter = (yesScale: number, extraNoW: number) => {
+    const yesEl = yesRef.current;
+    const noEl = noRef.current;
+    if (!yesEl || !noEl) return null;
+    const pad = 20;
+    const yr = yesEl.getBoundingClientRect();
+    const cx = (yr.left + yr.right) / 2;
+    const cy = (yr.top + yr.bottom) / 2;
+    const yhw = (yesEl.offsetWidth / 2) * yesScale + pad;
+    const yhh = (yesEl.offsetHeight / 2) * yesScale + pad;
+    const nr = noEl.getBoundingClientRect();
+    const m = new DOMMatrix(getComputedStyle(noEl).transform);
+    const baseL = nr.left - m.m41;
+    const baseT = nr.top - m.m42;
+    const w = noEl.offsetWidth + extraNoW;
+    const h = noEl.offsetHeight;
+    return (x: number, y: number) => {
+      const l = baseL + x;
+      const t = baseT + y;
+      const inView = l > 10 && l + w < window.innerWidth - 10 && t > 10 && t + h < window.innerHeight - 10;
+      const hitsYes = l < cx + yhw && l + w > cx - yhw && t < cy + yhh && t + h > cy - yhh;
+      return inView && !hitsYes;
+    };
+  };
+
+  const nearestFit = (fits: (x: number, y: number) => boolean, from: { x: number; y: number }) => {
+    let best: { x: number; y: number } | null = null;
+    let bestD = Infinity;
+    for (let x = -window.innerWidth; x <= window.innerWidth; x += 16) {
+      for (let y = -180; y <= 180; y += 15) {
+        if (!fits(x, y)) continue;
+        const d = Math.hypot(x - from.x, (y - from.y) * 1.5);
+        if (d < bestD) {
+          bestD = d;
+          best = { x, y };
+        }
       }
     }
-    setPos(next);
+    return best;
+  };
+
+  const dodge = () => {
+    const fits = fitter(scaleFor(tries + 1), 60);
+    if (!fits) return;
+    const area = areaRef.current?.getBoundingClientRect();
+    const halfW = Math.min(window.innerWidth / 2, (area?.width ?? 400) / 2 + 80);
+    let next: { x: number; y: number } | null = null;
+    for (let i = 0; i < 60 && !next; i++) {
+      const cand = { x: pos.x + (Math.random() * 2 - 1) * halfW, y: pos.y + (Math.random() * 2 - 1) * 90 };
+      const moved = Math.abs(cand.x - pos.x) > 50 || Math.abs(cand.y - pos.y) > 40;
+      if (Math.abs(cand.y) <= 180 && moved && fits(cand.x, cand.y)) next = cand;
+    }
+    setPos(next ?? nearestFit(fits, pos) ?? pos);
     setTries(t => t + 1);
     playSound('click');
   };
 
-  const yesScale = 1 + Math.min(tries, 6) * 0.1;
+  useLayoutEffect(() => {
+    if (tries === 0) return;
+    const fits = fitter(scaleFor(tries), 0);
+    if (!fits || fits(pos.x, pos.y)) return;
+    const fixed = nearestFit(fits, pos);
+    if (fixed) setPos(fixed);
+  }, [pos, tries]);
+
+  const yesScale = scaleFor(tries);
 
   return (
     <div className="overlay overlay-love">
