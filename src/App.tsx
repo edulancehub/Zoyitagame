@@ -60,96 +60,121 @@ interface CharState {
   jumpSquash: number;
 }
 
-// Level data - Jungle themed with proper spacing
+// Level data - Each level reveals a secret message
 const levels = [
   {
-    name: "🌿 The Jungle Path",
-    message: "Collect the golden flowers to show your love...",
+    name: "🌿 Secret #1",
+    message: "The jungle whispers a secret...",
     bg: { sky1: '#0a2e1a', sky2: '#1a4a2e', sky3: '#0d3320' },
+    secret: "I",
     platforms: [
-      { x: 0, y: 480, width: 800, height: 50, type: 'moss' as const },
-      { x: 100, y: 400, width: 120, height: 20, type: 'log' as const },
-      { x: 260, y: 350, width: 120, height: 20, type: 'leaf' as const },
-      { x: 420, y: 300, width: 120, height: 20, type: 'log' as const },
-      { x: 580, y: 350, width: 120, height: 20, type: 'stone' as const },
-      { x: 350, y: 220, width: 140, height: 20, type: 'leaf' as const },
-      { x: 150, y: 250, width: 100, height: 20, type: 'stone' as const },
+      { x: 0, y: 480, width: 150, height: 50, type: 'moss' as const },
+      { x: 200, y: 420, width: 80, height: 20, type: 'log' as const },
+      { x: 330, y: 360, width: 80, height: 20, type: 'leaf' as const },
+      { x: 460, y: 300, width: 80, height: 20, type: 'log' as const },
+      { x: 590, y: 360, width: 80, height: 20, type: 'stone' as const },
+      { x: 700, y: 300, width: 100, height: 20, type: 'leaf' as const },
+      { x: 550, y: 220, width: 80, height: 20, type: 'stone' as const },
+      { x: 380, y: 180, width: 80, height: 20, type: 'log' as const },
+      { x: 200, y: 240, width: 80, height: 20, type: 'leaf' as const },
+      { x: 50, y: 180, width: 100, height: 20, type: 'moss' as const },
     ],
     collectibles: [
-      { x: 160, y: 365, type: 'flower' as const },
-      { x: 320, y: 315, type: 'flower' as const },
-      { x: 480, y: 265, type: 'flower' as const },
-      { x: 640, y: 315, type: 'gem' as const },
-      { x: 420, y: 185, type: 'star' as const },
-      { x: 200, y: 215, type: 'flower' as const },
-    ],
-    playerStart: { x: 50, y: 430 },
-  },
-  {
-    name: "🌺 Ancient Ruins",
-    message: "Your love grows deeper in this sacred place...",
-    bg: { sky1: '#1a0a2e', sky2: '#2d1a4a', sky3: '#1a0d33' },
-    platforms: [
-      { x: 0, y: 480, width: 200, height: 50, type: 'stone' as const },
-      { x: 240, y: 420, width: 120, height: 20, type: 'moss' as const },
-      { x: 400, y: 370, width: 120, height: 20, type: 'stone' as const },
-      { x: 560, y: 420, width: 120, height: 20, type: 'log' as const },
-      { x: 680, y: 360, width: 120, height: 20, type: 'moss' as const },
-      { x: 520, y: 280, width: 120, height: 20, type: 'leaf' as const },
-      { x: 340, y: 230, width: 120, height: 20, type: 'stone' as const },
-      { x: 140, y: 280, width: 120, height: 20, type: 'log' as const },
-      { x: 140, y: 180, width: 120, height: 20, type: 'moss' as const },
-      { x: 360, y: 130, width: 140, height: 20, type: 'stone' as const },
-    ],
-    collectibles: [
-      { x: 300, y: 385, type: 'flower' as const },
-      { x: 460, y: 335, type: 'flower' as const },
-      { x: 620, y: 385, type: 'flower' as const },
-      { x: 740, y: 325, type: 'gem' as const },
-      { x: 580, y: 245, type: 'flower' as const },
-      { x: 400, y: 195, type: 'star' as const },
-      { x: 200, y: 245, type: 'flower' as const },
-      { x: 200, y: 145, type: 'gem' as const },
-      { x: 430, y: 95, type: 'star' as const },
-    ],
-    playerStart: { x: 50, y: 430 },
-  },
-  {
-    name: "🌟 The Heart of the Jungle",
-    message: "Every step brings us closer to forever...",
-    bg: { sky1: '#0a1e2e', sky2: '#1a3a4a', sky3: '#0d2533' },
-    platforms: [
-      { x: 0, y: 480, width: 160, height: 50, type: 'moss' as const },
-      { x: 180, y: 420, width: 100, height: 20, type: 'leaf' as const },
-      { x: 320, y: 370, width: 100, height: 20, type: 'log' as const },
-      { x: 460, y: 420, width: 100, height: 20, type: 'leaf' as const },
-      { x: 600, y: 360, width: 100, height: 20, type: 'stone' as const },
-      { x: 700, y: 300, width: 100, height: 20, type: 'moss' as const },
-      { x: 540, y: 250, width: 100, height: 20, type: 'leaf' as const },
-      { x: 380, y: 200, width: 100, height: 20, type: 'log' as const },
-      { x: 220, y: 250, width: 100, height: 20, type: 'stone' as const },
-      { x: 80, y: 300, width: 100, height: 20, type: 'leaf' as const },
-      { x: 80, y: 190, width: 110, height: 20, type: 'moss' as const },
-      { x: 260, y: 140, width: 120, height: 20, type: 'stone' as const },
-      { x: 460, y: 140, width: 120, height: 20, type: 'stone' as const },
-      { x: 350, y: 70, width: 120, height: 20, type: 'moss' as const },
-    ],
-    collectibles: [
-      { x: 230, y: 385, type: 'flower' as const },
-      { x: 370, y: 335, type: 'flower' as const },
-      { x: 510, y: 385, type: 'flower' as const },
-      { x: 650, y: 325, type: 'gem' as const },
+      { x: 240, y: 385, type: 'flower' as const },
+      { x: 370, y: 325, type: 'flower' as const },
+      { x: 500, y: 265, type: 'flower' as const },
+      { x: 630, y: 325, type: 'gem' as const },
       { x: 750, y: 265, type: 'flower' as const },
-      { x: 590, y: 215, type: 'flower' as const },
-      { x: 430, y: 165, type: 'star' as const },
-      { x: 270, y: 215, type: 'flower' as const },
-      { x: 130, y: 265, type: 'gem' as const },
-      { x: 135, y: 155, type: 'flower' as const },
-      { x: 320, y: 105, type: 'star' as const },
-      { x: 520, y: 105, type: 'star' as const },
-      { x: 410, y: 35, type: 'star' as const },
+      { x: 590, y: 185, type: 'star' as const },
+      { x: 420, y: 145, type: 'flower' as const },
+      { x: 240, y: 205, type: 'gem' as const },
+      { x: 100, y: 145, type: 'star' as const },
     ],
     playerStart: { x: 50, y: 430 },
+  },
+  {
+    name: "🌺 Secret #2",
+    message: "The ancient ruins hold another secret...",
+    bg: { sky1: '#1a0a2e', sky2: '#2d1a4a', sky3: '#1a0d33' },
+    secret: "love u",
+    platforms: [
+      { x: 0, y: 480, width: 120, height: 50, type: 'stone' as const },
+      { x: 180, y: 410, width: 70, height: 20, type: 'moss' as const },
+      { x: 300, y: 350, width: 70, height: 20, type: 'stone' as const },
+      { x: 420, y: 410, width: 70, height: 20, type: 'log' as const },
+      { x: 540, y: 350, width: 70, height: 20, type: 'leaf' as const },
+      { x: 660, y: 290, width: 70, height: 20, type: 'stone' as const },
+      { x: 540, y: 230, width: 70, height: 20, type: 'moss' as const },
+      { x: 400, y: 180, width: 70, height: 20, type: 'log' as const },
+      { x: 260, y: 240, width: 70, height: 20, type: 'stone' as const },
+      { x: 120, y: 300, width: 70, height: 20, type: 'leaf' as const },
+      { x: 120, y: 190, width: 80, height: 20, type: 'moss' as const },
+      { x: 280, y: 130, width: 70, height: 20, type: 'stone' as const },
+      { x: 450, y: 100, width: 80, height: 20, type: 'log' as const },
+      { x: 650, y: 150, width: 80, height: 20, type: 'leaf' as const },
+    ],
+    collectibles: [
+      { x: 215, y: 375, type: 'flower' as const },
+      { x: 335, y: 315, type: 'flower' as const },
+      { x: 455, y: 375, type: 'flower' as const },
+      { x: 575, y: 315, type: 'gem' as const },
+      { x: 695, y: 255, type: 'flower' as const },
+      { x: 575, y: 195, type: 'flower' as const },
+      { x: 435, y: 145, type: 'star' as const },
+      { x: 295, y: 205, type: 'flower' as const },
+      { x: 155, y: 265, type: 'gem' as const },
+      { x: 160, y: 155, type: 'flower' as const },
+      { x: 315, y: 95, type: 'star' as const },
+      { x: 490, y: 65, type: 'flower' as const },
+      { x: 690, y: 115, type: 'star' as const },
+    ],
+    playerStart: { x: 50, y: 430 },
+  },
+  {
+    name: "🌟 Secret #3",
+    message: "The final secret awaits...",
+    bg: { sky1: '#0a1e2e', sky2: '#1a3a4a', sky3: '#0d2533' },
+    secret: "zoyita",
+    platforms: [
+      { x: 0, y: 480, width: 100, height: 50, type: 'moss' as const },
+      { x: 150, y: 410, width: 60, height: 20, type: 'leaf' as const },
+      { x: 260, y: 350, width: 60, height: 20, type: 'log' as const },
+      { x: 370, y: 410, width: 60, height: 20, type: 'leaf' as const },
+      { x: 480, y: 350, width: 60, height: 20, type: 'stone' as const },
+      { x: 590, y: 290, width: 60, height: 20, type: 'moss' as const },
+      { x: 700, y: 350, width: 60, height: 20, type: 'leaf' as const },
+      { x: 600, y: 220, width: 60, height: 20, type: 'log' as const },
+      { x: 470, y: 170, width: 60, height: 20, type: 'stone' as const },
+      { x: 340, y: 230, width: 60, height: 20, type: 'leaf' as const },
+      { x: 210, y: 280, width: 60, height: 20, type: 'moss' as const },
+      { x: 80, y: 340, width: 60, height: 20, type: 'log' as const },
+      { x: 80, y: 220, width: 70, height: 20, type: 'stone' as const },
+      { x: 220, y: 160, width: 60, height: 20, type: 'leaf' as const },
+      { x: 360, y: 110, width: 60, height: 20, type: 'log' as const },
+      { x: 500, y: 90, width: 70, height: 20, type: 'stone' as const },
+      { x: 650, y: 130, width: 70, height: 20, type: 'moss' as const },
+      { x: 380, y: 40, width: 80, height: 20, type: 'leaf' as const },
+    ],
+    collectibles: [
+      { x: 180, y: 375, type: 'flower' as const },
+      { x: 290, y: 315, type: 'flower' as const },
+      { x: 400, y: 375, type: 'flower' as const },
+      { x: 510, y: 315, type: 'gem' as const },
+      { x: 620, y: 255, type: 'flower' as const },
+      { x: 730, y: 315, type: 'flower' as const },
+      { x: 630, y: 185, type: 'star' as const },
+      { x: 500, y: 135, type: 'flower' as const },
+      { x: 370, y: 195, type: 'gem' as const },
+      { x: 240, y: 245, type: 'flower' as const },
+      { x: 110, y: 305, type: 'flower' as const },
+      { x: 115, y: 185, type: 'star' as const },
+      { x: 250, y: 125, type: 'flower' as const },
+      { x: 390, y: 75, type: 'gem' as const },
+      { x: 535, y: 55, type: 'star' as const },
+      { x: 685, y: 95, type: 'flower' as const },
+      { x: 420, y: 5, type: 'star' as const },
+    ],
+    playerStart: { x: 40, y: 430 },
   },
 ];
 
@@ -158,6 +183,9 @@ function App() {
   const [gameState, setGameState] = useState<GameState>('menu');
   const [currentLevel, setCurrentLevel] = useState(0);
   const [showMessage, setShowMessage] = useState('');
+  const [revealedSecrets, setRevealedSecrets] = useState<string[]>([]);
+  const [answer, setAnswer] = useState<'yes' | 'no' | null>(null);
+  const [showAnswerScreen, setShowAnswerScreen] = useState(false);
 
   // Game refs
   const charRef = useRef<CharState>({
@@ -243,13 +271,20 @@ function App() {
   };
 
   const nextLevel = () => {
+    // Save the secret from current level
+    const currentSecret = levels[currentLevel].secret;
+    if (currentSecret && !revealedSecrets.includes(currentSecret)) {
+      setRevealedSecrets([...revealedSecrets, currentSecret]);
+    }
+    
     if (currentLevel < levels.length - 1) {
       const next = currentLevel + 1;
       setCurrentLevel(next);
       loadLevel(next);
       setGameState('playing');
     } else {
-      setGameState('finale');
+      // Final level complete - show the answer screen
+      setShowAnswerScreen(true);
     }
   };
 
@@ -1387,17 +1422,21 @@ function App() {
       ctx.fillStyle = '#fff';
       ctx.font = 'bold 32px Georgia, serif';
       ctx.textAlign = 'center';
-      ctx.fillText('For zoyita', 400, 250);
+      ctx.fillText('For zoyita', 400, 240);
       ctx.restore();
 
       ctx.fillStyle = '#90EE90';
       ctx.font = '16px Arial';
-      ctx.fillText('A Jungle Adventure of Love 💚', 400, 280);
+      ctx.fillText('A Jungle Adventure of Secrets 💚', 400, 270);
+      
+      ctx.fillStyle = 'rgba(255, 215, 0, 0.7)';
+      ctx.font = 'italic 13px Georgia, serif';
+      ctx.fillText('3 levels • 3 secrets • 1 question', 400, 295);
 
       // Decorative flowers
       for (let i = 0; i < 5; i++) {
         const fx = 250 + i * 75;
-        const fy = 300 + Math.sin(time * 0.03 + i) * 5;
+        const fy = 310 + Math.sin(time * 0.03 + i) * 5;
         ctx.fillStyle = '#FFD700';
         for (let j = 0; j < 5; j++) {
           const a = (j / 5) * Math.PI * 2 + time * 0.02;
@@ -1416,24 +1455,25 @@ function App() {
       ctx.save();
       ctx.shadowColor = '#FFD700';
       ctx.shadowBlur = 15;
-      const btnGrad = ctx.createLinearGradient(300, 340, 300, 390);
+      const btnGrad = ctx.createLinearGradient(300, 330, 300, 380);
       btnGrad.addColorStop(0, '#FFD700');
       btnGrad.addColorStop(1, '#FF8C00');
       ctx.fillStyle = btnGrad;
       ctx.beginPath();
-      ctx.roundRect(300, 340, 200 * btnPulse, 50, 25);
+      ctx.roundRect(300, 330, 200 * btnPulse, 50, 25);
       ctx.fill();
       ctx.restore();
 
       ctx.fillStyle = '#1a0a00';
       ctx.font = `bold ${18 * btnPulse}px Arial`;
-      ctx.fillText('▶  START ADVENTURE', 400, 372);
+      ctx.fillText('▶  START ADVENTURE', 400, 362);
 
       // Instructions
       ctx.fillStyle = 'rgba(200, 255, 200, 0.6)';
       ctx.font = '12px Arial';
-      ctx.fillText('Arrow Keys / WASD to move • Space to jump', 400, 420);
-      ctx.fillText('Collect all flowers & gems to complete each level!', 400, 440);
+      ctx.fillText('Arrow Keys / WASD to move • Space to jump', 400, 410);
+      ctx.fillText('Collect all flowers & gems to uncover secrets!', 400, 430);
+      ctx.fillText('🔮 Each level reveals a hidden message...', 400, 450);
 
       animRef.current = requestAnimationFrame(loop);
     };
@@ -1560,45 +1600,131 @@ function App() {
       ctx.globalAlpha = 1;
 
       // Text animations
-      const fadeIn1 = Math.min(1, time / 50);
-      ctx.globalAlpha = fadeIn1;
-      ctx.save();
-      ctx.shadowColor = '#FFD700';
-      ctx.shadowBlur = 20;
-      ctx.fillStyle = '#FFD700';
-      ctx.font = 'bold 42px Georgia, serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('I love u', 400, 310);
-      ctx.restore();
+      // Show different messages based on answer
+      if (answer === 'yes') {
+        // Happy ending
+        const fadeIn1 = Math.min(1, time / 50);
+        ctx.globalAlpha = fadeIn1;
+        ctx.save();
+        ctx.shadowColor = '#FFD700';
+        ctx.shadowBlur = 20;
+        ctx.fillStyle = '#FFD700';
+        ctx.font = 'bold 42px Georgia, serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('I love u', 400, 310);
+        ctx.restore();
 
-      const fadeIn2 = Math.min(1, Math.max(0, (time - 30) / 50));
-      ctx.globalAlpha = fadeIn2;
-      ctx.save();
-      ctx.shadowColor = '#FF69B4';
-      ctx.shadowBlur = 25;
-      ctx.fillStyle = '#FF69B4';
-      ctx.font = 'bold 58px Georgia, serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('zoyita', 400, 380);
-      ctx.restore();
+        const fadeIn2 = Math.min(1, Math.max(0, (time - 30) / 50));
+        ctx.globalAlpha = fadeIn2;
+        ctx.save();
+        ctx.shadowColor = '#FF69B4';
+        ctx.shadowBlur = 25;
+        ctx.fillStyle = '#FF69B4';
+        ctx.font = 'bold 58px Georgia, serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('zoyita', 400, 380);
+        ctx.restore();
 
-      const fadeIn3 = Math.min(1, Math.max(0, (time - 60) / 50));
-      ctx.globalAlpha = fadeIn3;
-      ctx.fillStyle = '#90EE90';
-      ctx.font = '18px Georgia, serif';
-      ctx.fillText('You make my heart bloom 💚', 400, 430);
+        const fadeIn3 = Math.min(1, Math.max(0, (time - 60) / 50));
+        ctx.globalAlpha = fadeIn3;
+        ctx.fillStyle = '#90EE90';
+        ctx.font = 'bold 20px Georgia, serif';
+        ctx.fillText('And you said YES! 💕', 400, 430);
 
-      const fadeIn4 = Math.min(1, Math.max(0, (time - 90) / 50));
-      ctx.globalAlpha = fadeIn4;
-      ctx.fillStyle = 'rgba(255, 215, 0, 0.7)';
-      ctx.font = '14px Georgia, serif';
-      ctx.fillText('Every moment with you is an adventure', 400, 465);
+        const fadeIn4 = Math.min(1, Math.max(0, (time - 90) / 50));
+        ctx.globalAlpha = fadeIn4;
+        ctx.fillStyle = 'rgba(255, 215, 0, 0.8)';
+        ctx.font = '16px Georgia, serif';
+        ctx.fillText('Together forever in this jungle of love', 400, 465);
 
-      const fadeIn5 = Math.min(1, Math.max(0, (time - 120) / 50));
-      ctx.globalAlpha = fadeIn5;
-      ctx.fillStyle = 'rgba(255, 105, 180, 0.6)';
-      ctx.font = '13px Georgia, serif';
-      ctx.fillText('Forever & Always ∞', 400, 495);
+        const fadeIn5 = Math.min(1, Math.max(0, (time - 120) / 50));
+        ctx.globalAlpha = fadeIn5;
+        ctx.fillStyle = 'rgba(255, 105, 180, 0.7)';
+        ctx.font = 'bold 14px Georgia, serif';
+        ctx.fillText('Forever & Always ∞', 400, 495);
+      } else if (answer === 'no') {
+        // Sad but hopeful ending
+        const fadeIn1 = Math.min(1, time / 50);
+        ctx.globalAlpha = fadeIn1;
+        ctx.save();
+        ctx.shadowColor = '#FFD700';
+        ctx.shadowBlur = 20;
+        ctx.fillStyle = '#FFD700';
+        ctx.font = 'bold 42px Georgia, serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('I love u', 400, 310);
+        ctx.restore();
+
+        const fadeIn2 = Math.min(1, Math.max(0, (time - 30) / 50));
+        ctx.globalAlpha = fadeIn2;
+        ctx.save();
+        ctx.shadowColor = '#FF69B4';
+        ctx.shadowBlur = 25;
+        ctx.fillStyle = '#FF69B4';
+        ctx.font = 'bold 58px Georgia, serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('zoyita', 400, 380);
+        ctx.restore();
+
+        const fadeIn3 = Math.min(1, Math.max(0, (time - 60) / 50));
+        ctx.globalAlpha = fadeIn3;
+        ctx.fillStyle = 'rgba(200, 200, 255, 0.8)';
+        ctx.font = '18px Georgia, serif';
+        ctx.fillText('Even if you say no...', 400, 430);
+
+        const fadeIn4 = Math.min(1, Math.max(0, (time - 90) / 50));
+        ctx.globalAlpha = fadeIn4;
+        ctx.fillStyle = 'rgba(255, 215, 0, 0.7)';
+        ctx.font = '16px Georgia, serif';
+        ctx.fillText('My love for you will never fade 💔', 400, 465);
+
+        const fadeIn5 = Math.min(1, Math.max(0, (time - 120) / 50));
+        ctx.globalAlpha = fadeIn5;
+        ctx.fillStyle = 'rgba(150, 200, 255, 0.6)';
+        ctx.font = '14px Georgia, serif';
+        ctx.fillText('Maybe someday you\'ll feel the same...', 400, 495);
+      } else {
+        // Default ending (no answer selected)
+        const fadeIn1 = Math.min(1, time / 50);
+        ctx.globalAlpha = fadeIn1;
+        ctx.save();
+        ctx.shadowColor = '#FFD700';
+        ctx.shadowBlur = 20;
+        ctx.fillStyle = '#FFD700';
+        ctx.font = 'bold 42px Georgia, serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('I love u', 400, 310);
+        ctx.restore();
+
+        const fadeIn2 = Math.min(1, Math.max(0, (time - 30) / 50));
+        ctx.globalAlpha = fadeIn2;
+        ctx.save();
+        ctx.shadowColor = '#FF69B4';
+        ctx.shadowBlur = 25;
+        ctx.fillStyle = '#FF69B4';
+        ctx.font = 'bold 58px Georgia, serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('zoyita', 400, 380);
+        ctx.restore();
+
+        const fadeIn3 = Math.min(1, Math.max(0, (time - 60) / 50));
+        ctx.globalAlpha = fadeIn3;
+        ctx.fillStyle = '#90EE90';
+        ctx.font = '18px Georgia, serif';
+        ctx.fillText('You make my heart bloom 💚', 400, 430);
+
+        const fadeIn4 = Math.min(1, Math.max(0, (time - 90) / 50));
+        ctx.globalAlpha = fadeIn4;
+        ctx.fillStyle = 'rgba(255, 215, 0, 0.7)';
+        ctx.font = '14px Georgia, serif';
+        ctx.fillText('Every moment with you is an adventure', 400, 465);
+
+        const fadeIn5 = Math.min(1, Math.max(0, (time - 120) / 50));
+        ctx.globalAlpha = fadeIn5;
+        ctx.fillStyle = 'rgba(255, 105, 180, 0.6)';
+        ctx.font = '13px Georgia, serif';
+        ctx.fillText('Forever & Always ∞', 400, 495);
+      }
 
       ctx.globalAlpha = 1;
 
@@ -1641,18 +1767,66 @@ function App() {
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 rounded-2xl backdrop-blur-sm">
             <div className="text-center p-8 bg-black/40 rounded-3xl border border-green-500/30">
               <p className="text-5xl mb-3">🌟</p>
-              <h2 className="text-3xl font-bold text-green-300 mb-2">Level Complete!</h2>
+              <h2 className="text-3xl font-bold text-green-300 mb-2">Secret Revealed!</h2>
+              
+              {/* Show the secret message */}
+              <div className="my-4 p-4 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-xl border border-pink-400/30">
+                <p className="text-sm text-pink-200 mb-2">The jungle whispers...</p>
+                <p className="text-2xl font-bold text-white animate-pulse">
+                  "{levels[currentLevel].secret}"
+                </p>
+              </div>
+              
               <p className="text-green-200/80 mb-5 text-sm">
                 {currentLevel < levels.length - 1
-                  ? 'The jungle reveals more of its beauty...'
-                  : 'You\'ve gathered all the love in the jungle!'}
+                  ? 'More secrets await in the depths...'
+                  : 'All secrets have been revealed!'}
               </p>
+              
               <button
                 onClick={nextLevel}
                 className="px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white rounded-full font-bold text-lg transition-all transform hover:scale-110 shadow-lg shadow-green-500/40"
               >
-                {currentLevel < levels.length - 1 ? '🌿 Next Level' : '✨ See the Finale ✨'}
+                {currentLevel < levels.length - 1 ? '🌿 Uncover Next Secret' : '💝 See the Final Message 💝'}
               </button>
+            </div>
+          </div>
+        )}
+
+        {/* Answer Screen */}
+        {showAnswerScreen && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/70 rounded-2xl backdrop-blur-md">
+            <div className="text-center p-8 bg-gradient-to-b from-pink-900/60 to-purple-900/60 rounded-3xl border-2 border-pink-400/50 max-w-md">
+              <p className="text-6xl mb-4 animate-bounce">💖</p>
+              
+              <h2 className="text-3xl font-bold text-pink-300 mb-3">
+                All Secrets Revealed
+              </h2>
+              
+              <div className="my-6 p-5 bg-black/40 rounded-2xl border border-pink-400/30">
+                <p className="text-sm text-pink-200 mb-3">The complete message is...</p>
+                <p className="text-3xl font-bold text-white mb-2">
+                  I love u zoyita
+                </p>
+                <p className="text-lg text-pink-300 font-semibold mt-4">
+                  What's your answer? 💝
+                </p>
+              </div>
+              
+              <div className="flex gap-4 justify-center mt-6">
+                <button
+                  onClick={() => { setAnswer('yes'); setShowAnswerScreen(false); setGameState('finale'); }}
+                  className="px-8 py-4 bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-400 hover:to-red-400 text-white rounded-full font-bold text-xl transition-all transform hover:scale-110 shadow-lg shadow-pink-500/50"
+                >
+                  Yes 💕
+                </button>
+                <button
+                  onClick={() => { setAnswer('no'); setShowAnswerScreen(false); setGameState('finale'); }}
+                  className="px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 text-white rounded-full font-bold text-xl transition-all transform hover:scale-110 shadow-lg shadow-gray-500/50"
+                >
+                  No 💔
+                </button>
+              </div>
             </div>
           </div>
         )}
