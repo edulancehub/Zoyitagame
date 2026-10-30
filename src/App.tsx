@@ -358,12 +358,13 @@ function Proposal({ onYes }: { onYes: () => void }) {
     const m = new DOMMatrix(getComputedStyle(noEl).transform);
     const baseL = nr.left - m.m41;
     const baseT = nr.top - m.m42;
+    const minTop = Math.max(10, (areaRef.current?.getBoundingClientRect().top ?? 0) - 6);
     const w = noEl.offsetWidth + extraNoW;
     const h = noEl.offsetHeight;
     return (x: number, y: number) => {
       const l = baseL + x;
       const t = baseT + y;
-      const inView = l > 10 && l + w < window.innerWidth - 10 && t > 10 && t + h < window.innerHeight - 10;
+      const inView = l > 10 && l + w < window.innerWidth - 10 && t > minTop && t + h < window.innerHeight - 10;
       const hitsYes = l < cx + yhw && l + w > cx - yhw && t < cy + yhh && t + h > cy - yhh;
       return inView && !hitsYes;
     };
