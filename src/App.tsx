@@ -1748,14 +1748,14 @@ function App() {
   }, []);
 
   return (
-    <div className="w-full h-screen flex flex-col items-center justify-center bg-[#050f0a] overflow-hidden select-none p-2">
-      <div className="relative w-full max-w-[800px]">
+    <div className="w-full h-screen flex flex-col items-center justify-center bg-[#050f0a] overflow-hidden select-none p-2 sm:p-4">
+      <div className="relative w-full max-w-[800px] flex flex-col items-center">
         <canvas
           ref={canvasRef}
           width={CANVAS_W}
           height={CANVAS_H}
-          className="rounded-2xl shadow-2xl shadow-green-500/20 w-full h-auto border border-green-500/20"
-          style={{ maxHeight: '65vh' }}
+          className="rounded-xl sm:rounded-2xl shadow-2xl shadow-green-500/20 w-full h-auto border border-green-500/20"
+          style={{ maxHeight: 'min(65vh, 500px)' }}
           onClick={() => {
             if (gameState === 'menu') startGame();
             if (gameState === 'levelComplete') nextLevel();
@@ -1764,20 +1764,20 @@ function App() {
 
         {/* Level Complete Overlay */}
         {gameState === 'levelComplete' && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 rounded-2xl backdrop-blur-sm">
-            <div className="text-center p-8 bg-black/40 rounded-3xl border border-green-500/30">
-              <p className="text-5xl mb-3">🌟</p>
-              <h2 className="text-3xl font-bold text-green-300 mb-2">Secret Revealed!</h2>
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 rounded-xl sm:rounded-2xl backdrop-blur-sm p-4">
+            <div className="text-center p-6 sm:p-8 bg-black/50 rounded-2xl sm:rounded-3xl border border-green-500/30 max-w-sm w-full">
+              <p className="text-4xl sm:text-5xl mb-3">🌟</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-green-300 mb-3">Secret Revealed!</h2>
               
               {/* Show the secret message */}
               <div className="my-4 p-4 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-xl border border-pink-400/30">
-                <p className="text-sm text-pink-200 mb-2">The jungle whispers...</p>
-                <p className="text-2xl font-bold text-white animate-pulse">
+                <p className="text-xs sm:text-sm text-pink-200 mb-2">The jungle whispers...</p>
+                <p className="text-xl sm:text-2xl font-bold text-white animate-pulse">
                   "{levels[currentLevel].secret}"
                 </p>
               </div>
               
-              <p className="text-green-200/80 mb-5 text-sm">
+              <p className="text-green-200/80 mb-5 text-xs sm:text-sm">
                 {currentLevel < levels.length - 1
                   ? 'More secrets await in the depths...'
                   : 'All secrets have been revealed!'}
@@ -1785,7 +1785,7 @@ function App() {
               
               <button
                 onClick={nextLevel}
-                className="px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white rounded-full font-bold text-lg transition-all transform hover:scale-110 shadow-lg shadow-green-500/40"
+                className="w-full px-6 py-3 sm:py-4 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white rounded-full font-bold text-sm sm:text-base transition-all transform active:scale-95 shadow-lg shadow-green-500/40"
               >
                 {currentLevel < levels.length - 1 ? '🌿 Uncover Next Secret' : '💝 See the Final Message 💝'}
               </button>
@@ -1795,34 +1795,34 @@ function App() {
 
         {/* Answer Screen */}
         {showAnswerScreen && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/70 rounded-2xl backdrop-blur-md">
-            <div className="text-center p-8 bg-gradient-to-b from-pink-900/60 to-purple-900/60 rounded-3xl border-2 border-pink-400/50 max-w-md">
-              <p className="text-6xl mb-4 animate-bounce">💖</p>
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/70 rounded-xl sm:rounded-2xl backdrop-blur-md p-4">
+            <div className="text-center p-6 sm:p-8 bg-gradient-to-b from-pink-900/60 to-purple-900/60 rounded-2xl sm:rounded-3xl border-2 border-pink-400/50 max-w-sm w-full">
+              <p className="text-5xl sm:text-6xl mb-4 animate-bounce">💖</p>
               
-              <h2 className="text-3xl font-bold text-pink-300 mb-3">
+              <h2 className="text-2xl sm:text-3xl font-bold text-pink-300 mb-3">
                 All Secrets Revealed
               </h2>
               
-              <div className="my-6 p-5 bg-black/40 rounded-2xl border border-pink-400/30">
-                <p className="text-sm text-pink-200 mb-3">The complete message is...</p>
-                <p className="text-3xl font-bold text-white mb-2">
+              <div className="my-4 sm:my-6 p-4 sm:p-5 bg-black/40 rounded-xl sm:rounded-2xl border border-pink-400/30">
+                <p className="text-xs sm:text-sm text-pink-200 mb-2 sm:mb-3">The complete message is...</p>
+                <p className="text-2xl sm:text-3xl font-bold text-white mb-2">
                   I love u zoyita
                 </p>
-                <p className="text-lg text-pink-300 font-semibold mt-4">
+                <p className="text-base sm:text-lg text-pink-300 font-semibold mt-3 sm:mt-4">
                   What's your answer? 💝
                 </p>
               </div>
               
-              <div className="flex gap-4 justify-center mt-6">
+              <div className="flex gap-3 sm:gap-4 justify-center mt-5 sm:mt-6">
                 <button
                   onClick={() => { setAnswer('yes'); setShowAnswerScreen(false); setGameState('finale'); }}
-                  className="px-8 py-4 bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-400 hover:to-red-400 text-white rounded-full font-bold text-xl transition-all transform hover:scale-110 shadow-lg shadow-pink-500/50"
+                  className="flex-1 px-6 py-3 sm:py-4 bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-400 hover:to-red-400 text-white rounded-full font-bold text-base sm:text-xl transition-all transform active:scale-95 shadow-lg shadow-pink-500/50"
                 >
                   Yes 💕
                 </button>
                 <button
                   onClick={() => { setAnswer('no'); setShowAnswerScreen(false); setGameState('finale'); }}
-                  className="px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 text-white rounded-full font-bold text-xl transition-all transform hover:scale-110 shadow-lg shadow-gray-500/50"
+                  className="flex-1 px-6 py-3 sm:py-4 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 text-white rounded-full font-bold text-base sm:text-xl transition-all transform active:scale-95 shadow-lg shadow-gray-500/50"
                 >
                   No 💔
                 </button>
@@ -1833,45 +1833,55 @@ function App() {
 
         {/* Message popup */}
         {showMessage && gameState === 'playing' && (
-          <div className="absolute top-16 left-1/2 -translate-x-1/2 bg-green-900/80 backdrop-blur-sm text-green-100 px-5 py-2 rounded-full text-sm font-medium animate-pulse border border-green-500/30">
+          <div className="absolute top-14 sm:top-16 left-1/2 -translate-x-1/2 bg-green-900/80 backdrop-blur-sm text-green-100 px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium animate-pulse border border-green-500/30 max-w-[90%] text-center">
             {showMessage}
           </div>
         )}
       </div>
 
-      {/* Touch Controls */}
+      {/* Touch Controls - Mobile Optimized */}
       {gameState === 'playing' && (
-        <div className="flex gap-3 mt-3">
-          <button
-            className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-b from-green-500 to-green-800 text-white text-xl sm:text-2xl font-bold active:from-green-400 active:to-green-600 shadow-lg shadow-green-500/40 border border-green-400/30 flex items-center justify-center"
-            onTouchStart={(e) => { e.preventDefault(); touchRef.current.left = true; }}
-            onTouchEnd={() => { touchRef.current.left = false; }}
-            onMouseDown={() => { touchRef.current.left = true; }}
-            onMouseUp={() => { touchRef.current.left = false; }}
-            onMouseLeave={() => { touchRef.current.left = false; }}
-          >
-            ◀
-          </button>
-          <button
-            className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-b from-green-500 to-green-800 text-white text-xl sm:text-2xl font-bold active:from-green-400 active:to-green-600 shadow-lg shadow-green-500/40 border border-green-400/30 flex items-center justify-center"
-            onTouchStart={(e) => { e.preventDefault(); touchRef.current.jump = true; }}
-            onTouchEnd={() => { touchRef.current.jump = false; }}
-            onMouseDown={() => { touchRef.current.jump = true; }}
-            onMouseUp={() => { touchRef.current.jump = false; }}
-            onMouseLeave={() => { touchRef.current.jump = false; }}
-          >
-            ▲
-          </button>
-          <button
-            className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-b from-green-500 to-green-800 text-white text-xl sm:text-2xl font-bold active:from-green-400 active:to-green-600 shadow-lg shadow-green-500/40 border border-green-400/30 flex items-center justify-center"
-            onTouchStart={(e) => { e.preventDefault(); touchRef.current.right = true; }}
-            onTouchEnd={() => { touchRef.current.right = false; }}
-            onMouseDown={() => { touchRef.current.right = true; }}
-            onMouseUp={() => { touchRef.current.right = false; }}
-            onMouseLeave={() => { touchRef.current.right = false; }}
-          >
-            ▶
-          </button>
+        <div className="w-full max-w-[800px] mt-3 sm:mt-4 px-4">
+          <div className="flex justify-between items-center">
+            {/* Left side - Movement controls */}
+            <div className="flex gap-2 sm:gap-3">
+              <button
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-b from-green-400 to-green-700 text-white text-2xl sm:text-3xl font-bold active:from-green-300 active:to-green-600 shadow-xl shadow-green-500/50 border-2 border-green-300/40 flex items-center justify-center transition-transform active:scale-90"
+                onTouchStart={(e) => { e.preventDefault(); touchRef.current.left = true; }}
+                onTouchEnd={() => { touchRef.current.left = false; }}
+                onTouchCancel={() => { touchRef.current.left = false; }}
+                onMouseDown={() => { touchRef.current.left = true; }}
+                onMouseUp={() => { touchRef.current.left = false; }}
+                onMouseLeave={() => { touchRef.current.left = false; }}
+              >
+                ◀
+              </button>
+              <button
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-b from-green-400 to-green-700 text-white text-2xl sm:text-3xl font-bold active:from-green-300 active:to-green-600 shadow-xl shadow-green-500/50 border-2 border-green-300/40 flex items-center justify-center transition-transform active:scale-90"
+                onTouchStart={(e) => { e.preventDefault(); touchRef.current.right = true; }}
+                onTouchEnd={() => { touchRef.current.right = false; }}
+                onTouchCancel={() => { touchRef.current.right = false; }}
+                onMouseDown={() => { touchRef.current.right = true; }}
+                onMouseUp={() => { touchRef.current.right = false; }}
+                onMouseLeave={() => { touchRef.current.right = false; }}
+              >
+                ▶
+              </button>
+            </div>
+            
+            {/* Right side - Jump button */}
+            <button
+              className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-b from-emerald-400 to-emerald-700 text-white text-3xl sm:text-4xl font-bold active:from-emerald-300 active:to-emerald-600 shadow-xl shadow-emerald-500/50 border-2 border-emerald-300/40 flex items-center justify-center transition-transform active:scale-90"
+              onTouchStart={(e) => { e.preventDefault(); touchRef.current.jump = true; }}
+              onTouchEnd={() => { touchRef.current.jump = false; }}
+              onTouchCancel={() => { touchRef.current.jump = false; }}
+              onMouseDown={() => { touchRef.current.jump = true; }}
+              onMouseUp={() => { touchRef.current.jump = false; }}
+              onMouseLeave={() => { touchRef.current.jump = false; }}
+            >
+              ▲
+            </button>
+          </div>
         </div>
       )}
 
@@ -1879,7 +1889,7 @@ function App() {
       {gameState === 'finale' && (
         <button
           onClick={() => setGameState('menu')}
-          className="mt-4 px-6 py-2 bg-green-700/60 hover:bg-green-600/80 text-green-100 rounded-full text-sm transition-all border border-green-500/30"
+          className="mt-3 sm:mt-4 px-6 py-2.5 sm:py-3 bg-green-700/60 hover:bg-green-600/80 active:bg-green-600 text-green-100 rounded-full text-sm sm:text-base transition-all border border-green-500/30 active:scale-95"
         >
           🌿 Play Again
         </button>

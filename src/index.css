@@ -14,31 +14,37 @@ html, body, #root {
   touch-action: none;
   -webkit-user-select: none;
   user-select: none;
+  -webkit-touch-callout: none;
 }
 
 canvas {
   image-rendering: auto;
   touch-action: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+/* Prevent zoom on double tap */
+* {
+  touch-action: manipulation;
 }
 
-@keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(76, 175, 80, 0.4); }
-  50% { box-shadow: 0 0 40px rgba(76, 175, 80, 0.7); }
+/* Prevent text selection */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+/* Smooth animations */
+button {
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Mobile optimizations */
-@media (max-width: 768px) {
-  canvas {
-    max-height: 55vh !important;
+/* Mobile viewport fix */
+@supports (-webkit-touch-callout: none) {
+  .h-screen {
+    height: -webkit-fill-available;
   }
 }
 
@@ -47,7 +53,43 @@ canvas {
   display: none;
 }
 
-/* Prevent text selection during gameplay */
-* {
-  -webkit-tap-highlight-color: transparent;
+/* Pulse animation for secrets */
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.4);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(76, 175, 80, 0.7);
+    transform: scale(1.02);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  canvas {
+    max-height: 50vh !important;
+  }
+  
+  /* Larger touch targets on mobile */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  canvas {
+    max-height: 60vh !important;
+  }
+}
+
+/* Prevent pull-to-refresh on mobile */
+body {
+  overscroll-behavior: none;
 }
