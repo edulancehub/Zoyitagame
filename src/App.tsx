@@ -60,7 +60,7 @@ interface CharState {
   jumpSquash: number;
 }
 
-// Level data - Jungle themed
+// Level data - Jungle themed with proper spacing
 const levels = [
   {
     name: "🌿 The Jungle Path",
@@ -68,84 +68,86 @@ const levels = [
     bg: { sky1: '#0a2e1a', sky2: '#1a4a2e', sky3: '#0d3320' },
     platforms: [
       { x: 0, y: 480, width: 800, height: 50, type: 'moss' as const },
-      { x: 80, y: 390, width: 130, height: 18, type: 'log' as const },
-      { x: 280, y: 330, width: 140, height: 18, type: 'leaf' as const },
-      { x: 500, y: 280, width: 130, height: 18, type: 'log' as const },
-      { x: 320, y: 200, width: 160, height: 18, type: 'stone' as const },
-      { x: 100, y: 150, width: 120, height: 18, type: 'leaf' as const },
+      { x: 100, y: 400, width: 120, height: 20, type: 'log' as const },
+      { x: 260, y: 350, width: 120, height: 20, type: 'leaf' as const },
+      { x: 420, y: 300, width: 120, height: 20, type: 'log' as const },
+      { x: 580, y: 350, width: 120, height: 20, type: 'stone' as const },
+      { x: 350, y: 220, width: 140, height: 20, type: 'leaf' as const },
+      { x: 150, y: 250, width: 100, height: 20, type: 'stone' as const },
     ],
     collectibles: [
-      { x: 140, y: 355, type: 'flower' as const },
-      { x: 340, y: 295, type: 'flower' as const },
-      { x: 560, y: 245, type: 'flower' as const },
-      { x: 390, y: 165, type: 'star' as const },
-      { x: 155, y: 115, type: 'gem' as const },
+      { x: 160, y: 365, type: 'flower' as const },
+      { x: 320, y: 315, type: 'flower' as const },
+      { x: 480, y: 265, type: 'flower' as const },
+      { x: 640, y: 315, type: 'gem' as const },
+      { x: 420, y: 185, type: 'star' as const },
+      { x: 200, y: 215, type: 'flower' as const },
     ],
-    playerStart: { x: 60, y: 430 },
+    playerStart: { x: 50, y: 430 },
   },
   {
     name: "🌺 Ancient Ruins",
     message: "Your love grows deeper in this sacred place...",
     bg: { sky1: '#1a0a2e', sky2: '#2d1a4a', sky3: '#1a0d33' },
     platforms: [
-      { x: 0, y: 480, width: 180, height: 50, type: 'stone' as const },
-      { x: 220, y: 430, width: 110, height: 18, type: 'moss' as const },
-      { x: 380, y: 370, width: 110, height: 18, type: 'stone' as const },
-      { x: 540, y: 430, width: 110, height: 18, type: 'log' as const },
-      { x: 680, y: 370, width: 120, height: 18, type: 'moss' as const },
-      { x: 500, y: 290, width: 120, height: 18, type: 'leaf' as const },
-      { x: 300, y: 230, width: 120, height: 18, type: 'stone' as const },
-      { x: 100, y: 290, width: 120, height: 18, type: 'log' as const },
-      { x: 100, y: 170, width: 140, height: 18, type: 'moss' as const },
-      { x: 350, y: 120, width: 150, height: 18, type: 'stone' as const },
+      { x: 0, y: 480, width: 200, height: 50, type: 'stone' as const },
+      { x: 240, y: 420, width: 120, height: 20, type: 'moss' as const },
+      { x: 400, y: 370, width: 120, height: 20, type: 'stone' as const },
+      { x: 560, y: 420, width: 120, height: 20, type: 'log' as const },
+      { x: 680, y: 360, width: 120, height: 20, type: 'moss' as const },
+      { x: 520, y: 280, width: 120, height: 20, type: 'leaf' as const },
+      { x: 340, y: 230, width: 120, height: 20, type: 'stone' as const },
+      { x: 140, y: 280, width: 120, height: 20, type: 'log' as const },
+      { x: 140, y: 180, width: 120, height: 20, type: 'moss' as const },
+      { x: 360, y: 130, width: 140, height: 20, type: 'stone' as const },
     ],
     collectibles: [
-      { x: 270, y: 395, type: 'flower' as const },
-      { x: 430, y: 335, type: 'flower' as const },
-      { x: 590, y: 395, type: 'flower' as const },
-      { x: 730, y: 335, type: 'gem' as const },
-      { x: 555, y: 255, type: 'flower' as const },
-      { x: 355, y: 195, type: 'star' as const },
-      { x: 155, y: 255, type: 'flower' as const },
-      { x: 165, y: 135, type: 'gem' as const },
-      { x: 420, y: 85, type: 'star' as const },
+      { x: 300, y: 385, type: 'flower' as const },
+      { x: 460, y: 335, type: 'flower' as const },
+      { x: 620, y: 385, type: 'flower' as const },
+      { x: 740, y: 325, type: 'gem' as const },
+      { x: 580, y: 245, type: 'flower' as const },
+      { x: 400, y: 195, type: 'star' as const },
+      { x: 200, y: 245, type: 'flower' as const },
+      { x: 200, y: 145, type: 'gem' as const },
+      { x: 430, y: 95, type: 'star' as const },
     ],
-    playerStart: { x: 60, y: 430 },
+    playerStart: { x: 50, y: 430 },
   },
   {
     name: "🌟 The Heart of the Jungle",
     message: "Every step brings us closer to forever...",
     bg: { sky1: '#0a1e2e', sky2: '#1a3a4a', sky3: '#0d2533' },
     platforms: [
-      { x: 0, y: 480, width: 140, height: 50, type: 'moss' as const },
-      { x: 170, y: 420, width: 90, height: 16, type: 'leaf' as const },
-      { x: 300, y: 370, width: 90, height: 16, type: 'log' as const },
-      { x: 430, y: 420, width: 90, height: 16, type: 'leaf' as const },
-      { x: 560, y: 370, width: 90, height: 16, type: 'stone' as const },
-      { x: 680, y: 310, width: 100, height: 16, type: 'moss' as const },
-      { x: 530, y: 260, width: 90, height: 16, type: 'leaf' as const },
-      { x: 380, y: 210, width: 90, height: 16, type: 'log' as const },
-      { x: 220, y: 260, width: 90, height: 16, type: 'stone' as const },
-      { x: 80, y: 310, width: 90, height: 16, type: 'leaf' as const },
-      { x: 80, y: 190, width: 100, height: 16, type: 'moss' as const },
-      { x: 250, y: 130, width: 120, height: 16, type: 'stone' as const },
-      { x: 450, y: 130, width: 120, height: 16, type: 'stone' as const },
-      { x: 350, y: 60, width: 100, height: 16, type: 'moss' as const },
+      { x: 0, y: 480, width: 160, height: 50, type: 'moss' as const },
+      { x: 180, y: 420, width: 100, height: 20, type: 'leaf' as const },
+      { x: 320, y: 370, width: 100, height: 20, type: 'log' as const },
+      { x: 460, y: 420, width: 100, height: 20, type: 'leaf' as const },
+      { x: 600, y: 360, width: 100, height: 20, type: 'stone' as const },
+      { x: 700, y: 300, width: 100, height: 20, type: 'moss' as const },
+      { x: 540, y: 250, width: 100, height: 20, type: 'leaf' as const },
+      { x: 380, y: 200, width: 100, height: 20, type: 'log' as const },
+      { x: 220, y: 250, width: 100, height: 20, type: 'stone' as const },
+      { x: 80, y: 300, width: 100, height: 20, type: 'leaf' as const },
+      { x: 80, y: 190, width: 110, height: 20, type: 'moss' as const },
+      { x: 260, y: 140, width: 120, height: 20, type: 'stone' as const },
+      { x: 460, y: 140, width: 120, height: 20, type: 'stone' as const },
+      { x: 350, y: 70, width: 120, height: 20, type: 'moss' as const },
     ],
     collectibles: [
-      { x: 210, y: 385, type: 'flower' as const },
-      { x: 340, y: 335, type: 'flower' as const },
-      { x: 470, y: 385, type: 'flower' as const },
-      { x: 600, y: 335, type: 'gem' as const },
-      { x: 725, y: 275, type: 'flower' as const },
-      { x: 570, y: 225, type: 'flower' as const },
-      { x: 420, y: 175, type: 'star' as const },
-      { x: 260, y: 225, type: 'flower' as const },
-      { x: 120, y: 275, type: 'gem' as const },
-      { x: 125, y: 155, type: 'flower' as const },
-      { x: 305, y: 95, type: 'star' as const },
-      { x: 505, y: 95, type: 'star' as const },
-      { x: 395, y: 25, type: 'star' as const },
+      { x: 230, y: 385, type: 'flower' as const },
+      { x: 370, y: 335, type: 'flower' as const },
+      { x: 510, y: 385, type: 'flower' as const },
+      { x: 650, y: 325, type: 'gem' as const },
+      { x: 750, y: 265, type: 'flower' as const },
+      { x: 590, y: 215, type: 'flower' as const },
+      { x: 430, y: 165, type: 'star' as const },
+      { x: 270, y: 215, type: 'flower' as const },
+      { x: 130, y: 265, type: 'gem' as const },
+      { x: 135, y: 155, type: 'flower' as const },
+      { x: 320, y: 105, type: 'star' as const },
+      { x: 520, y: 105, type: 'star' as const },
+      { x: 410, y: 35, type: 'star' as const },
     ],
     playerStart: { x: 50, y: 430 },
   },
@@ -271,13 +273,18 @@ function App() {
     const level = levels[levelIdx];
     const { sky1, sky2, sky3 } = level.bg;
 
-    // Sky gradient
+    // Sky gradient with more depth
     const grad = ctx.createLinearGradient(0, 0, 0, CANVAS_H);
     grad.addColorStop(0, sky1);
-    grad.addColorStop(0.5, sky2);
-    grad.addColorStop(1, sky3);
+    grad.addColorStop(0.4, sky2);
+    grad.addColorStop(0.8, sky3);
+    grad.addColorStop(1, '#000000');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, CANVAS_W, CANVAS_H);
+
+    // Atmospheric fog layers
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.02)';
+    ctx.fillRect(0, CANVAS_H * 0.3, CANVAS_W, CANVAS_H * 0.2);
 
     // Moon/sun glow
     const moonX = 650;
@@ -377,105 +384,207 @@ function App() {
     const { x, y, width, height, type } = plat;
 
     ctx.save();
+    
+    // Add subtle shadow under platform
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+    ctx.beginPath();
+    ctx.ellipse(x + width / 2, y + height + 3, width / 2, 4, 0, 0, Math.PI * 2);
+    ctx.fill();
+    
     switch (type) {
       case 'log': {
-        // Wooden log
+        // Wooden log with better gradient
         const logGrad = ctx.createLinearGradient(x, y, x, y + height);
-        logGrad.addColorStop(0, '#8B5E3C');
-        logGrad.addColorStop(0.3, '#6B3E26');
+        logGrad.addColorStop(0, '#A0724A');
+        logGrad.addColorStop(0.2, '#8B5E3C');
+        logGrad.addColorStop(0.5, '#6B3E26');
+        logGrad.addColorStop(0.8, '#5A3420');
         logGrad.addColorStop(1, '#4A2A18');
         ctx.fillStyle = logGrad;
         ctx.beginPath();
-        ctx.roundRect(x, y, width, height, 8);
+        ctx.roundRect(x, y, width, height, 10);
         ctx.fill();
-        // Wood grain
-        ctx.strokeStyle = 'rgba(90, 50, 20, 0.5)';
-        ctx.lineWidth = 1;
-        for (let i = 0; i < 3; i++) {
+        
+        // Wood grain with better detail
+        ctx.strokeStyle = 'rgba(90, 50, 20, 0.4)';
+        ctx.lineWidth = 1.5;
+        for (let i = 0; i < 4; i++) {
           ctx.beginPath();
-          ctx.moveTo(x + 10, y + 4 + i * 5);
-          ctx.lineTo(x + width - 10, y + 4 + i * 5);
+          const waveOffset = Math.sin(i * 1.5) * 2;
+          ctx.moveTo(x + 8, y + 3 + i * 4 + waveOffset);
+          ctx.quadraticCurveTo(x + width / 2, y + 3 + i * 4 - waveOffset, x + width - 8, y + 3 + i * 4 + waveOffset);
           ctx.stroke();
         }
-        // Moss on top
-        ctx.fillStyle = '#2d8a4e';
-        for (let i = 0; i < width; i += 8) {
-          const mh = Math.max(0.1, 3 + Math.sin(i * 0.3 + time * 0.02) * 2);
+        
+        // Highlight on top
+        ctx.fillStyle = 'rgba(255, 200, 150, 0.2)';
+        ctx.beginPath();
+        ctx.roundRect(x + 5, y + 2, width - 10, 3, 2);
+        ctx.fill();
+        
+        // Moss on top with better detail
+        ctx.fillStyle = '#3d9a5e';
+        for (let i = 0; i < width; i += 6) {
+          const mh = Math.max(0.1, 4 + Math.sin(i * 0.3 + time * 0.02) * 2);
           ctx.beginPath();
           ctx.arc(x + i, y, mh, Math.PI, 0);
+          ctx.fill();
+        }
+        
+        // Moss highlight
+        ctx.fillStyle = 'rgba(100, 200, 100, 0.3)';
+        for (let i = 0; i < width; i += 12) {
+          ctx.beginPath();
+          ctx.arc(x + i, y - 1, 2, Math.PI, 0);
           ctx.fill();
         }
         break;
       }
       case 'leaf': {
-        // Giant leaf platform
-        const leafGrad = ctx.createLinearGradient(x, y, x, y + height);
-        leafGrad.addColorStop(0, '#3CB371');
+        // Giant leaf platform with better gradient
+        const leafGrad = ctx.createRadialGradient(
+          x + width / 2, y + height / 2, 0,
+          x + width / 2, y + height / 2, width / 2
+        );
+        leafGrad.addColorStop(0, '#5CD89A');
+        leafGrad.addColorStop(0.5, '#3CB371');
         leafGrad.addColorStop(1, '#228B22');
         ctx.fillStyle = leafGrad;
         ctx.beginPath();
         ctx.ellipse(x + width / 2, y + height / 2, Math.max(0.1, width / 2), Math.max(0.1, height), 0, 0, Math.PI * 2);
         ctx.fill();
-        // Leaf vein
-        ctx.strokeStyle = 'rgba(0, 80, 0, 0.4)';
-        ctx.lineWidth = 1.5;
+        
+        // Leaf veins with better detail
+        ctx.strokeStyle = 'rgba(0, 80, 0, 0.5)';
+        ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.moveTo(x + 10, y + height / 2);
         ctx.lineTo(x + width - 10, y + height / 2);
         ctx.stroke();
-        // Glow
-        ctx.shadowColor = '#3CB371';
-        ctx.shadowBlur = 8;
-        ctx.strokeStyle = 'rgba(60, 179, 113, 0.3)';
+        
+        // Side veins
         ctx.lineWidth = 1;
+        for (let i = 0; i < 5; i++) {
+          const vx = x + 20 + i * (width - 40) / 5;
+          ctx.beginPath();
+          ctx.moveTo(vx, y + height / 2);
+          ctx.lineTo(vx + 5, y + height - 2);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(vx, y + height / 2);
+          ctx.lineTo(vx + 5, y + 2);
+          ctx.stroke();
+        }
+        
+        // Highlight
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+        ctx.beginPath();
+        ctx.ellipse(x + width / 3, y + height / 3, width / 4, height / 3, 0, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Glow effect
+        ctx.shadowColor = '#5CD89A';
+        ctx.shadowBlur = 12;
+        ctx.strokeStyle = 'rgba(92, 216, 154, 0.4)';
+        ctx.lineWidth = 1.5;
         ctx.beginPath();
         ctx.ellipse(x + width / 2, y + height / 2, Math.max(0.1, width / 2), Math.max(0.1, height), 0, 0, Math.PI * 2);
         ctx.stroke();
         break;
       }
       case 'stone': {
-        // Ancient stone
+        // Ancient stone with better gradient
         const stoneGrad = ctx.createLinearGradient(x, y, x, y + height);
-        stoneGrad.addColorStop(0, '#7a7a7a');
-        stoneGrad.addColorStop(0.5, '#5a5a5a');
+        stoneGrad.addColorStop(0, '#8a8a8a');
+        stoneGrad.addColorStop(0.3, '#6a6a6a');
+        stoneGrad.addColorStop(0.7, '#4a4a4a');
         stoneGrad.addColorStop(1, '#3a3a3a');
         ctx.fillStyle = stoneGrad;
         ctx.beginPath();
-        ctx.roundRect(x, y, width, height, 4);
+        ctx.roundRect(x, y, width, height, 6);
         ctx.fill();
-        // Cracks
-        ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
-        ctx.lineWidth = 1;
+        
+        // Stone texture
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
+        for (let i = 0; i < 5; i++) {
+          const tx = x + 10 + i * (width - 20) / 5;
+          const ty = y + 5 + Math.sin(i * 2) * 3;
+          ctx.beginPath();
+          ctx.arc(tx, ty, 2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        
+        // Cracks with better detail
+        ctx.strokeStyle = 'rgba(0, 0, 0, 0.4)';
+        ctx.lineWidth = 1.5;
         ctx.beginPath();
         ctx.moveTo(x + width * 0.3, y);
+        ctx.lineTo(x + width * 0.32, y + height * 0.5);
         ctx.lineTo(x + width * 0.35, y + height);
         ctx.stroke();
+        
         ctx.beginPath();
         ctx.moveTo(x + width * 0.7, y);
+        ctx.lineTo(x + width * 0.68, y + height * 0.6);
         ctx.lineTo(x + width * 0.65, y + height);
         ctx.stroke();
-        // Glowing runes
-        ctx.fillStyle = `rgba(100, 255, 150, ${0.3 + Math.sin(time * 0.05) * 0.2})`;
-        ctx.font = '8px serif';
-        ctx.fillText('✦', x + width * 0.5 - 4, y + height - 3);
+        
+        // Highlight on top
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+        ctx.beginPath();
+        ctx.roundRect(x + 3, y + 2, width - 6, 3, 2);
+        ctx.fill();
+        
+        // Glowing runes with better effect
+        const runeGlow = 0.4 + Math.sin(time * 0.05) * 0.3;
+        ctx.save();
+        ctx.shadowColor = `rgba(100, 255, 150, ${runeGlow})`;
+        ctx.shadowBlur = 8;
+        ctx.fillStyle = `rgba(100, 255, 150, ${runeGlow})`;
+        ctx.font = 'bold 10px serif';
+        ctx.fillText('✦', x + width * 0.5 - 5, y + height - 4);
+        ctx.restore();
         break;
       }
       case 'moss': {
-        // Mossy ground
+        // Mossy ground with better gradient
         const mossGrad = ctx.createLinearGradient(x, y, x, y + height);
-        mossGrad.addColorStop(0, '#2d6b3f');
-        mossGrad.addColorStop(0.2, '#1a4a2e');
+        mossGrad.addColorStop(0, '#3d8b5f');
+        mossGrad.addColorStop(0.1, '#2d6b3f');
+        mossGrad.addColorStop(0.4, '#1a4a2e');
         mossGrad.addColorStop(1, '#0d2e1a');
         ctx.fillStyle = mossGrad;
         ctx.fillRect(x, y, width, height);
-        // Grass on top
-        ctx.fillStyle = '#4CAF50';
-        for (let i = 0; i < width; i += 5) {
-          const gh = 4 + Math.sin(i * 0.5 + time * 0.03) * 3;
+        
+        // Grass on top with better detail
+        ctx.fillStyle = '#5CBF70';
+        for (let i = 0; i < width; i += 4) {
+          const gh = 5 + Math.sin(i * 0.5 + time * 0.03) * 3;
           ctx.beginPath();
           ctx.moveTo(x + i, y);
-          ctx.lineTo(x + i + 2, y - gh);
-          ctx.lineTo(x + i + 4, y);
+          ctx.lineTo(x + i + 1.5, y - gh);
+          ctx.lineTo(x + i + 3, y);
+          ctx.fill();
+        }
+        
+        // Grass highlight
+        ctx.fillStyle = 'rgba(150, 255, 150, 0.3)';
+        for (let i = 0; i < width; i += 8) {
+          const gh = 3 + Math.sin(i * 0.5 + time * 0.03 + 1) * 2;
+          ctx.beginPath();
+          ctx.moveTo(x + i, y);
+          ctx.lineTo(x + i + 1, y - gh);
+          ctx.lineTo(x + i + 2, y);
+          ctx.fill();
+        }
+        
+        // Moss texture
+        ctx.fillStyle = 'rgba(50, 150, 80, 0.2)';
+        for (let i = 0; i < 8; i++) {
+          const mx = x + 10 + i * (width - 20) / 8;
+          const my = y + 10 + Math.sin(i * 1.5) * 5;
+          ctx.beginPath();
+          ctx.arc(mx, my, 3, 0, Math.PI * 2);
           ctx.fill();
         }
         break;
@@ -495,30 +604,44 @@ function App() {
     ctx.scale(facing, 1);
     ctx.scale(stretch, squash);
 
-    // Shadow
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+    // Shadow with better gradient
+    const shadowGrad = ctx.createRadialGradient(0, 18, 0, 0, 18, 14);
+    shadowGrad.addColorStop(0, 'rgba(0, 0, 0, 0.4)');
+    shadowGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.fillStyle = shadowGrad;
     ctx.beginPath();
     ctx.ellipse(0, 18, Math.max(0.1, 14), Math.max(0.1, 4), 0, 0, Math.PI * 2);
     ctx.fill();
 
     // Body (cute round creature - like a little jungle spirit)
-    const bodyGrad = ctx.createRadialGradient(-3, -5, 0, 0, 0, 18);
-    bodyGrad.addColorStop(0, '#7CFC00');
-    bodyGrad.addColorStop(0.7, '#32CD32');
+    const bodyGrad = ctx.createRadialGradient(-4, -6, 0, 0, 0, 20);
+    bodyGrad.addColorStop(0, '#90FF30');
+    bodyGrad.addColorStop(0.4, '#7CFC00');
+    bodyGrad.addColorStop(0.8, '#32CD32');
     bodyGrad.addColorStop(1, '#228B22');
     ctx.fillStyle = bodyGrad;
     ctx.beginPath();
     ctx.ellipse(0, 0, Math.max(0.1, 16), Math.max(0.1, 18), 0, 0, Math.PI * 2);
     ctx.fill();
+    
+    // Body outline
+    ctx.strokeStyle = 'rgba(0, 80, 0, 0.3)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.ellipse(0, 0, Math.max(0.1, 16), Math.max(0.1, 18), 0, 0, Math.PI * 2);
+    ctx.stroke();
 
-    // Belly
-    ctx.fillStyle = '#90EE90';
+    // Belly with better gradient
+    const bellyGrad = ctx.createRadialGradient(0, 4, 0, 0, 4, 11);
+    bellyGrad.addColorStop(0, '#B0FF90');
+    bellyGrad.addColorStop(1, '#90EE90');
+    ctx.fillStyle = bellyGrad;
     ctx.beginPath();
     ctx.ellipse(0, 4, Math.max(0.1, 10), Math.max(0.1, 11), 0, 0, Math.PI * 2);
     ctx.fill();
 
-    // Ears/leaves on head
-    ctx.fillStyle = '#228B22';
+    // Ears/leaves on head with better design
+    ctx.fillStyle = '#2E8B2E';
     // Left ear
     ctx.beginPath();
     ctx.ellipse(-10, -16, Math.max(0.1, 5), Math.max(0.1, 8), -0.3, 0, Math.PI * 2);
@@ -527,49 +650,106 @@ function App() {
     ctx.beginPath();
     ctx.ellipse(10, -16, Math.max(0.1, 5), Math.max(0.1, 8), 0.3, 0, Math.PI * 2);
     ctx.fill();
-    // Leaf on head
-    ctx.fillStyle = '#3CB371';
+    
+    // Ear highlights
+    ctx.fillStyle = 'rgba(100, 200, 100, 0.3)';
+    ctx.beginPath();
+    ctx.ellipse(-10, -18, Math.max(0.1, 3), Math.max(0.1, 4), -0.3, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(10, -18, Math.max(0.1, 3), Math.max(0.1, 4), 0.3, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Leaf on head with better design
+    ctx.fillStyle = '#4CD89A';
     ctx.beginPath();
     ctx.ellipse(0, -20, Math.max(0.1, 4), Math.max(0.1, 7), Math.sin(time * 0.05) * 0.2, 0, Math.PI * 2);
     ctx.fill();
+    
+    // Leaf vein
     ctx.strokeStyle = '#228B22';
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(0, -14);
     ctx.lineTo(0, -26);
     ctx.stroke();
+    
+    // Leaf highlight
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.beginPath();
+    ctx.ellipse(-1, -22, Math.max(0.1, 2), Math.max(0.1, 3), Math.sin(time * 0.05) * 0.2, 0, Math.PI * 2);
+    ctx.fill();
 
-    // Eyes
+    // Eyes with better design
     const eyeY = -4;
-    // Eye whites
-    ctx.fillStyle = '#fff';
+    
+    // Eye whites with gradient
+    const eyeGrad = ctx.createRadialGradient(-6, eyeY, 0, -6, eyeY, 6);
+    eyeGrad.addColorStop(0, '#FFFFFF');
+    eyeGrad.addColorStop(1, '#F0F0F0');
+    ctx.fillStyle = eyeGrad;
     ctx.beginPath();
     ctx.ellipse(-6, eyeY, Math.max(0.1, 5), Math.max(0.1, 6), 0, 0, Math.PI * 2);
     ctx.fill();
+    
+    const eyeGrad2 = ctx.createRadialGradient(6, eyeY, 0, 6, eyeY, 6);
+    eyeGrad2.addColorStop(0, '#FFFFFF');
+    eyeGrad2.addColorStop(1, '#F0F0F0');
+    ctx.fillStyle = eyeGrad2;
     ctx.beginPath();
     ctx.ellipse(6, eyeY, Math.max(0.1, 5), Math.max(0.1, 6), 0, 0, Math.PI * 2);
     ctx.fill();
-    // Pupils
-    ctx.fillStyle = '#1a1a1a';
+    
+    // Eye outlines
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.2)';
+    ctx.lineWidth = 0.5;
+    ctx.beginPath();
+    ctx.ellipse(-6, eyeY, Math.max(0.1, 5), Math.max(0.1, 6), 0, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.ellipse(6, eyeY, Math.max(0.1, 5), Math.max(0.1, 6), 0, 0, Math.PI * 2);
+    ctx.stroke();
+    
+    // Pupils with gradient
     const pupilOffset = onGround ? 0 : -1;
+    const pupilGrad = ctx.createRadialGradient(-5, eyeY + pupilOffset, 0, -5, eyeY + pupilOffset, 3);
+    pupilGrad.addColorStop(0, '#2a2a2a');
+    pupilGrad.addColorStop(1, '#0a0a0a');
+    ctx.fillStyle = pupilGrad;
     ctx.beginPath();
     ctx.arc(-5, eyeY + pupilOffset, Math.max(0.1, 3), 0, Math.PI * 2);
     ctx.fill();
+    
+    const pupilGrad2 = ctx.createRadialGradient(7, eyeY + pupilOffset, 0, 7, eyeY + pupilOffset, 3);
+    pupilGrad2.addColorStop(0, '#2a2a2a');
+    pupilGrad2.addColorStop(1, '#0a0a0a');
+    ctx.fillStyle = pupilGrad2;
     ctx.beginPath();
     ctx.arc(7, eyeY + pupilOffset, Math.max(0.1, 3), 0, Math.PI * 2);
     ctx.fill();
-    // Eye shine
-    ctx.fillStyle = '#fff';
+    
+    // Eye shine with better detail
+    ctx.fillStyle = '#FFFFFF';
     ctx.beginPath();
-    ctx.arc(-4, eyeY - 2 + pupilOffset, Math.max(0.1, 1.5), 0, Math.PI * 2);
+    ctx.arc(-4, eyeY - 2 + pupilOffset, Math.max(0.1, 2), 0, Math.PI * 2);
     ctx.fill();
     ctx.beginPath();
-    ctx.arc(8, eyeY - 2 + pupilOffset, Math.max(0.1, 1.5), 0, Math.PI * 2);
+    ctx.arc(8, eyeY - 2 + pupilOffset, Math.max(0.1, 2), 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Secondary shine
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+    ctx.beginPath();
+    ctx.arc(-6, eyeY + 1 + pupilOffset, Math.max(0.1, 1), 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(6, eyeY + 1 + pupilOffset, Math.max(0.1, 1), 0, Math.PI * 2);
     ctx.fill();
 
-    // Mouth
+    // Mouth with better design
     ctx.strokeStyle = '#1a4a2e';
-    ctx.lineWidth = 1.5;
+    ctx.lineWidth = 2;
+    ctx.lineCap = 'round';
     ctx.beginPath();
     if (!onGround) {
       // Excited mouth when jumping
@@ -580,31 +760,53 @@ function App() {
     }
     ctx.stroke();
 
-    // Blush
-    ctx.fillStyle = 'rgba(255, 150, 150, 0.4)';
+    // Blush with better gradient
+    const blushGrad = ctx.createRadialGradient(-10, 3, 0, -10, 3, 4);
+    blushGrad.addColorStop(0, 'rgba(255, 150, 150, 0.5)');
+    blushGrad.addColorStop(1, 'rgba(255, 150, 150, 0)');
+    ctx.fillStyle = blushGrad;
     ctx.beginPath();
     ctx.ellipse(-10, 3, Math.max(0.1, 4), Math.max(0.1, 3), 0, 0, Math.PI * 2);
     ctx.fill();
+    
+    const blushGrad2 = ctx.createRadialGradient(12, 3, 0, 12, 3, 4);
+    blushGrad2.addColorStop(0, 'rgba(255, 150, 150, 0.5)');
+    blushGrad2.addColorStop(1, 'rgba(255, 150, 150, 0)');
+    ctx.fillStyle = blushGrad2;
     ctx.beginPath();
     ctx.ellipse(12, 3, Math.max(0.1, 4), Math.max(0.1, 3), 0, 0, Math.PI * 2);
     ctx.fill();
 
-    // Feet
+    // Feet with better design
     const legAnim = onGround ? Math.sin(walkFrame * 0.4) * 3 : 0;
-    ctx.fillStyle = '#228B22';
+    const feetGrad = ctx.createLinearGradient(0, 13, 0, 19);
+    feetGrad.addColorStop(0, '#2E8B2E');
+    feetGrad.addColorStop(1, '#1a6b1a');
+    ctx.fillStyle = feetGrad;
     ctx.beginPath();
     ctx.ellipse(-6, 16 + legAnim, Math.max(0.1, 5), Math.max(0.1, 3), 0, 0, Math.PI * 2);
     ctx.fill();
     ctx.beginPath();
     ctx.ellipse(6, 16 - legAnim, Math.max(0.1, 5), Math.max(0.1, 3), 0, 0, Math.PI * 2);
     ctx.fill();
+    
+    // Feet highlights
+    ctx.fillStyle = 'rgba(100, 200, 100, 0.3)';
+    ctx.beginPath();
+    ctx.ellipse(-6, 15 + legAnim, Math.max(0.1, 3), Math.max(0.1, 1.5), 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(6, 15 - legAnim, Math.max(0.1, 3), Math.max(0.1, 1.5), 0, 0, Math.PI * 2);
+    ctx.fill();
 
-    // Glow aura
+    // Glow aura with better effect
     ctx.save();
-    ctx.globalAlpha = 0.15 + Math.sin(time * 0.05) * 0.05;
-    ctx.shadowColor = '#7CFC00';
-    ctx.shadowBlur = 20;
-    ctx.fillStyle = '#7CFC00';
+    ctx.globalAlpha = 0.2 + Math.sin(time * 0.05) * 0.08;
+    const auraGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, 22);
+    auraGrad.addColorStop(0, 'rgba(124, 252, 0, 0.4)');
+    auraGrad.addColorStop(0.5, 'rgba(124, 252, 0, 0.2)');
+    auraGrad.addColorStop(1, 'rgba(124, 252, 0, 0)');
+    ctx.fillStyle = auraGrad;
     ctx.beginPath();
     ctx.ellipse(0, 0, Math.max(0.1, 20), Math.max(0.1, 22), 0, 0, Math.PI * 2);
     ctx.fill();
@@ -625,13 +827,20 @@ function App() {
 
     switch (c.type) {
       case 'flower': {
-        // Golden tropical flower
+        // Golden tropical flower with better design
         ctx.shadowColor = '#FFD700';
-        ctx.shadowBlur = 15;
-        // Petals
+        ctx.shadowBlur = 18;
+        
+        // Outer petals with gradient
         for (let i = 0; i < 6; i++) {
           const angle = (i / 6) * Math.PI * 2 + time * 0.02;
-          ctx.fillStyle = '#FFD700';
+          const petalGrad = ctx.createRadialGradient(
+            Math.cos(angle) * 8, Math.sin(angle) * 8, 0,
+            Math.cos(angle) * 8, Math.sin(angle) * 8, 5
+          );
+          petalGrad.addColorStop(0, '#FFE44D');
+          petalGrad.addColorStop(1, '#FFD700');
+          ctx.fillStyle = petalGrad;
           ctx.beginPath();
           ctx.ellipse(
             Math.cos(angle) * 8, Math.sin(angle) * 8,
@@ -639,23 +848,59 @@ function App() {
           );
           ctx.fill();
         }
-        // Center
-        ctx.fillStyle = '#FF8C00';
+        
+        // Inner petals
+        for (let i = 0; i < 6; i++) {
+          const angle = (i / 6) * Math.PI * 2 + time * 0.02 + Math.PI / 6;
+          ctx.fillStyle = '#FFC700';
+          ctx.beginPath();
+          ctx.ellipse(
+            Math.cos(angle) * 5, Math.sin(angle) * 5,
+            Math.max(0.1, 3), Math.max(0.1, 2), angle, 0, Math.PI * 2
+          );
+          ctx.fill();
+        }
+        
+        // Center with gradient
+        const centerGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, 5);
+        centerGrad.addColorStop(0, '#FFAA00');
+        centerGrad.addColorStop(1, '#FF8C00');
+        ctx.fillStyle = centerGrad;
         ctx.beginPath();
         ctx.arc(0, 0, Math.max(0.1, 5), 0, Math.PI * 2);
         ctx.fill();
-        // Sparkle
-        ctx.fillStyle = `rgba(255, 255, 200, ${0.5 + Math.sin(c.phase * 3) * 0.5})`;
+        
+        // Center highlight
+        ctx.fillStyle = 'rgba(255, 255, 200, 0.6)';
+        ctx.beginPath();
+        ctx.arc(-1, -1, Math.max(0.1, 2), 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Sparkle with better effect
+        const sparkleAlpha = 0.5 + Math.sin(c.phase * 3) * 0.5;
+        ctx.fillStyle = `rgba(255, 255, 200, ${sparkleAlpha})`;
         ctx.beginPath();
         ctx.arc(-3, -3, Math.max(0.1, 2), 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Secondary sparkle
+        ctx.fillStyle = `rgba(255, 255, 150, ${sparkleAlpha * 0.7})`;
+        ctx.beginPath();
+        ctx.arc(4, -2, Math.max(0.1, 1.5), 0, Math.PI * 2);
         ctx.fill();
         break;
       }
       case 'gem': {
-        // Emerald gem
+        // Emerald gem with better design
         ctx.shadowColor = '#00FF88';
-        ctx.shadowBlur = 12;
-        ctx.fillStyle = '#00CC66';
+        ctx.shadowBlur = 15;
+        
+        // Main gem body with gradient
+        const gemGrad = ctx.createLinearGradient(0, -10, 0, 10);
+        gemGrad.addColorStop(0, '#00FF88');
+        gemGrad.addColorStop(0.5, '#00CC66');
+        gemGrad.addColorStop(1, '#009944');
+        ctx.fillStyle = gemGrad;
         ctx.beginPath();
         ctx.moveTo(0, -10);
         ctx.lineTo(8, -3);
@@ -665,8 +910,14 @@ function App() {
         ctx.lineTo(-8, -3);
         ctx.closePath();
         ctx.fill();
-        // Highlight
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+        
+        // Gem outline
+        ctx.strokeStyle = 'rgba(0, 100, 50, 0.5)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        
+        // Top highlight
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
         ctx.beginPath();
         ctx.moveTo(0, -8);
         ctx.lineTo(5, -3);
@@ -674,13 +925,36 @@ function App() {
         ctx.lineTo(-5, -3);
         ctx.closePath();
         ctx.fill();
+        
+        // Side highlights
+        ctx.fillStyle = 'rgba(200, 255, 220, 0.3)';
+        ctx.beginPath();
+        ctx.moveTo(6, -2);
+        ctx.lineTo(7, 3);
+        ctx.lineTo(4, 4);
+        ctx.lineTo(3, -1);
+        ctx.closePath();
+        ctx.fill();
+        
+        // Sparkle
+        const gemSparkle = 0.4 + Math.sin(c.phase * 2) * 0.4;
+        ctx.fillStyle = `rgba(255, 255, 255, ${gemSparkle})`;
+        ctx.beginPath();
+        ctx.arc(-2, -4, Math.max(0.1, 1.5), 0, Math.PI * 2);
+        ctx.fill();
         break;
       }
       case 'star': {
-        // Glowing star
+        // Glowing star with better design
         ctx.shadowColor = '#FF69B4';
-        ctx.shadowBlur = 15;
-        ctx.fillStyle = '#FF69B4';
+        ctx.shadowBlur = 18;
+        
+        // Star body with gradient
+        const starGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, 10);
+        starGrad.addColorStop(0, '#FFB6C1');
+        starGrad.addColorStop(0.5, '#FF69B4');
+        starGrad.addColorStop(1, '#FF1493');
+        ctx.fillStyle = starGrad;
         ctx.beginPath();
         for (let i = 0; i < 5; i++) {
           const angle = (i / 5) * Math.PI * 2 - Math.PI / 2;
@@ -690,11 +964,30 @@ function App() {
         }
         ctx.closePath();
         ctx.fill();
-        // Inner glow
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+        
+        // Star outline
+        ctx.strokeStyle = 'rgba(200, 0, 100, 0.4)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        
+        // Inner glow with gradient
+        const innerGlowGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, 4);
+        innerGlowGrad.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
+        innerGlowGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.fillStyle = innerGlowGrad;
         ctx.beginPath();
-        ctx.arc(0, 0, Math.max(0.1, 3), 0, Math.PI * 2);
+        ctx.arc(0, 0, Math.max(0.1, 4), 0, Math.PI * 2);
         ctx.fill();
+        
+        // Sparkle points
+        const starSparkle = 0.5 + Math.sin(c.phase * 3) * 0.5;
+        ctx.fillStyle = `rgba(255, 255, 255, ${starSparkle})`;
+        for (let i = 0; i < 5; i++) {
+          const angle = (i / 5) * Math.PI * 2 - Math.PI / 2;
+          ctx.beginPath();
+          ctx.arc(Math.cos(angle) * 7, Math.sin(angle) * 7, Math.max(0.1, 1), 0, Math.PI * 2);
+          ctx.fill();
+        }
         break;
       }
     }
@@ -751,56 +1044,104 @@ function App() {
     const total = totalCollectiblesRef.current;
     const progress = total > 0 ? collected / total : 0;
 
-    // HUD background
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+    // HUD background with better gradient
+    const hudGrad = ctx.createLinearGradient(250, 8, 250, 43);
+    hudGrad.addColorStop(0, 'rgba(0, 0, 0, 0.6)');
+    hudGrad.addColorStop(1, 'rgba(0, 0, 0, 0.4)');
+    ctx.fillStyle = hudGrad;
     ctx.beginPath();
-    ctx.roundRect(250, 8, 300, 35, 15);
+    ctx.roundRect(250, 8, 300, 35, 18);
     ctx.fill();
-    ctx.strokeStyle = 'rgba(100, 255, 150, 0.3)';
-    ctx.lineWidth = 1;
+    
+    // HUD border with glow
+    ctx.strokeStyle = 'rgba(100, 255, 150, 0.4)';
+    ctx.lineWidth = 1.5;
+    ctx.shadowColor = 'rgba(100, 255, 150, 0.5)';
+    ctx.shadowBlur = 5;
     ctx.beginPath();
-    ctx.roundRect(250, 8, 300, 35, 15);
+    ctx.roundRect(250, 8, 300, 35, 18);
     ctx.stroke();
+    ctx.shadowBlur = 0;
 
-    // Progress bar
+    // Progress bar background
     const barX = 290;
     const barY = 16;
     const barW = 200;
     const barH = 18;
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
     ctx.beginPath();
-    ctx.roundRect(barX, barY, barW, barH, 9);
+    ctx.roundRect(barX, barY, barW, barH, 10);
     ctx.fill();
-
-    const barGrad = ctx.createLinearGradient(barX, barY, barX + barW * progress, barY);
-    barGrad.addColorStop(0, '#FFD700');
-    barGrad.addColorStop(1, '#FF8C00');
-    ctx.fillStyle = barGrad;
+    
+    // Progress bar border
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.lineWidth = 1;
     ctx.beginPath();
-    ctx.roundRect(barX, barY, barW * progress, barH, 9);
-    ctx.fill();
+    ctx.roundRect(barX, barY, barW, barH, 10);
+    ctx.stroke();
 
-    // Flower icon
-    ctx.fillStyle = '#FFD700';
+    // Progress bar fill with better gradient
+    if (progress > 0) {
+      const barGrad = ctx.createLinearGradient(barX, barY, barX + barW * progress, barY + barH);
+      barGrad.addColorStop(0, '#FFE44D');
+      barGrad.addColorStop(0.5, '#FFD700');
+      barGrad.addColorStop(1, '#FF8C00');
+      ctx.fillStyle = barGrad;
+      ctx.beginPath();
+      ctx.roundRect(barX, barY, Math.max(0, barW * progress), barH, 10);
+      ctx.fill();
+      
+      // Progress bar highlight
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+      ctx.beginPath();
+      ctx.roundRect(barX + 2, barY + 2, Math.max(0, barW * progress - 4), barH / 3, 5);
+      ctx.fill();
+      
+      // Progress bar glow
+      ctx.shadowColor = '#FFD700';
+      ctx.shadowBlur = 8;
+      ctx.strokeStyle = 'rgba(255, 215, 0, 0.6)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.roundRect(barX, barY, Math.max(0, barW * progress), barH, 10);
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+    }
+
+    // Flower icon with better design
+    const iconGrad = ctx.createRadialGradient(268, barY + barH / 2, 0, 268, barY + barH / 2, 7);
+    iconGrad.addColorStop(0, '#FFE44D');
+    iconGrad.addColorStop(1, '#FFD700');
+    ctx.fillStyle = iconGrad;
     ctx.beginPath();
     ctx.arc(268, barY + barH / 2, Math.max(0.1, 7), 0, Math.PI * 2);
     ctx.fill();
-    ctx.fillStyle = '#FF8C00';
+    
+    const iconCenterGrad = ctx.createRadialGradient(268, barY + barH / 2, 0, 268, barY + barH / 2, 4);
+    iconCenterGrad.addColorStop(0, '#FFAA00');
+    iconCenterGrad.addColorStop(1, '#FF8C00');
+    ctx.fillStyle = iconCenterGrad;
     ctx.beginPath();
     ctx.arc(268, barY + barH / 2, Math.max(0.1, 4), 0, Math.PI * 2);
     ctx.fill();
 
-    // Text
-    ctx.fillStyle = '#fff';
-    ctx.font = 'bold 11px Arial';
+    // Text with better styling
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = 'bold 12px Arial';
     ctx.textAlign = 'center';
-    ctx.fillText(`${collected}/${total}`, barX + barW / 2, barY + 13);
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
+    ctx.shadowBlur = 3;
+    ctx.fillText(`${collected}/${total}`, barX + barW / 2, barY + 14);
+    ctx.shadowBlur = 0;
 
-    // Level name
-    ctx.fillStyle = 'rgba(200, 255, 200, 0.8)';
-    ctx.font = '12px Arial';
+    // Level name with better styling
+    ctx.fillStyle = 'rgba(200, 255, 200, 0.9)';
+    ctx.font = 'bold 13px Arial';
     ctx.textAlign = 'center';
-    ctx.fillText(level.name, 400, 58);
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
+    ctx.shadowBlur = 4;
+    ctx.fillText(level.name, 400, 60);
+    ctx.shadowBlur = 0;
   };
 
   // ===== GAME LOOP =====
@@ -1046,12 +1387,12 @@ function App() {
       ctx.fillStyle = '#fff';
       ctx.font = 'bold 32px Georgia, serif';
       ctx.textAlign = 'center';
-      ctx.fillText('Jungle Love', 400, 250);
+      ctx.fillText('For zoyita', 400, 250);
       ctx.restore();
 
       ctx.fillStyle = '#90EE90';
       ctx.font = '16px Arial';
-      ctx.fillText('A Journey of Love', 400, 280);
+      ctx.fillText('A Jungle Adventure of Love 💚', 400, 280);
 
       // Decorative flowers
       for (let i = 0; i < 5; i++) {
@@ -1227,7 +1568,7 @@ function App() {
       ctx.fillStyle = '#FFD700';
       ctx.font = 'bold 42px Georgia, serif';
       ctx.textAlign = 'center';
-      ctx.fillText('I Love You', 400, 310);
+      ctx.fillText('I love u', 400, 310);
       ctx.restore();
 
       const fadeIn2 = Math.min(1, Math.max(0, (time - 30) / 50));
@@ -1238,20 +1579,20 @@ function App() {
       ctx.fillStyle = '#FF69B4';
       ctx.font = 'bold 58px Georgia, serif';
       ctx.textAlign = 'center';
-      ctx.fillText('Zoeyta', 400, 380);
+      ctx.fillText('zoyita', 400, 380);
       ctx.restore();
 
       const fadeIn3 = Math.min(1, Math.max(0, (time - 60) / 50));
       ctx.globalAlpha = fadeIn3;
       ctx.fillStyle = '#90EE90';
       ctx.font = '18px Georgia, serif';
-      ctx.fillText('You are my whole world 💚', 400, 430);
+      ctx.fillText('You make my heart bloom 💚', 400, 430);
 
       const fadeIn4 = Math.min(1, Math.max(0, (time - 90) / 50));
       ctx.globalAlpha = fadeIn4;
       ctx.fillStyle = 'rgba(255, 215, 0, 0.7)';
       ctx.font = '14px Georgia, serif';
-      ctx.fillText('Every adventure is better with you by my side', 400, 465);
+      ctx.fillText('Every moment with you is an adventure', 400, 465);
 
       const fadeIn5 = Math.min(1, Math.max(0, (time - 120) / 50));
       ctx.globalAlpha = fadeIn5;
